@@ -52,7 +52,11 @@ public class Solution {
 ```
 
 #### 解法二【不推荐】
-利用递归方式，若不是链表尾结点，继续递归；若是，添加到 `list` 中。这种方式不推荐，当递归层树过多时，容易发生 `Stack Overflow`。
+利用递归方式：
+- 若不是链表尾结点，继续递归；
+- 若是，添加到 `list` 中。
+
+这种方式不推荐，当递归层数过多时，容易发生 `Stack Overflow`。
 
 ```java
 /**
@@ -76,7 +80,7 @@ import java.util.Stack;
 public class Solution {
     /**
      * 从尾到头打印链表
-     * @param listNode 链表头节点
+     * @param listNode 链表头结点
      * @return list
      */
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
@@ -93,7 +97,7 @@ public class Solution {
     private void addElement(ListNode listNode, ArrayList<Integer> res) {
         if (listNode.next != null) {
             // 递归调用
-            print(listNode.next, res);
+            addElement(listNode.next, res);
         }
         res.add(listNode.val);
     }
@@ -102,5 +106,5 @@ public class Solution {
 
 
 ### 测试用例
-1. 功能测试（输入的链表有多个结点；输入的链表只有一个结点）
+1. 功能测试（输入的链表有多个结点；输入的链表只有一个结点）；
 2. 特殊输入测试（输入的链表结点指针为空）。
