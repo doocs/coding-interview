@@ -9,3 +9,4 @@
 | 03_02 | [Find Duplication In Array II](https://github.com/doocs/coding-interview/tree/master/solution/03_02_DuplicationInArrayNoEdit) |
 | 04 | [Find In Partially Sorted Matrix](https://github.com/doocs/coding-interview/tree/master/solution/04_FindInPartiallySortedMatrix) |
 | 05 | [Replace Spaces](https://github.com/doocs/coding-interview/tree/master/solution/05_ReplaceSpaces) |
+| 06 | [Print List In Reversed Order](https://github.com/doocs/coding-interview/tree/master/solution/06_PrintListInReversedOrder) |
