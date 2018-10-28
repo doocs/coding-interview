@@ -12,6 +12,7 @@
 | 06 | [Print List In Reversed Order](https://github.com/doocs/coding-interview/tree/master/solution/06_PrintListInReversedOrder) |
 | 07 | [Construct Binary Tree](https://github.com/doocs/coding-interview/tree/master/solution/07_ConstructBinaryTree) |
 | 08 | [Next Node In Binary Trees](https://github.com/doocs/coding-interview/tree/master/solution/08_NextNodeInBinaryTrees) |
+| 09 | [Queue With Two Stacks](https://github.com/doocs/coding-interview/tree/master/solution/09_QueueWithTwoStacks) |
 
 ## Reading List
 - [ ] [《剑指 Offer》](http://paver62xl.bkt.clouddn.com/%E5%89%91%E6%8C%87OFFER%20%20%E5%90%8D%E4%BC%81%E9%9D%A2%E8%AF%95%E5%AE%98%E7%B2%BE%E8%AE%B2%E5%85%B8%E5%9E%8B%E7%BC%96%E7%A8%8B%E9%A2%98%20%20%E7%AC%AC2%E7%89%88.pdf) 87/355
@@ -25,5 +26,7 @@
 - [ ] [《Redis 设计与实现》](http://paver62xl.bkt.clouddn.com/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%28%E7%AC%AC%E4%BA%8C%E7%89%88%29.pdf)
 - [ ] [《图解 HTTP》](http://paver62xl.bkt.clouddn.com/%E5%9B%BE%E8%A7%A3HTTP%E5%BD%A9%E8%89%B2%E7%89%88.pdf)
 - [ ] [《深入理解 Java 虚拟机》](http://paver62xl.bkt.clouddn.com/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E2%80%94%E2%80%94JVM%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%28%E7%AC%AC2%E7%89%88%29.pdf)
+- [ ] [《Effective Java 第二版》](http://paver62xl.bkt.clouddn.com/Effective%20Java%20%E7%AC%AC%E4%BA%8C%E7%89%88%20%E4%B8%AD%E6%96%87%E7%89%88.pdf)
+- [ ] [《Java 编程思想》](http://paver62xl.bkt.clouddn.com/Java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%28%E7%AC%AC4%E7%89%88%29.pdf)
 
 
