@@ -11,6 +11,7 @@
 | 05 | [Replace Spaces](https://github.com/doocs/coding-interview/tree/master/solution/05_ReplaceSpaces) |
 | 06 | [Print List In Reversed Order](https://github.com/doocs/coding-interview/tree/master/solution/06_PrintListInReversedOrder) |
 | 07 | [Construct Binary Tree](https://github.com/doocs/coding-interview/tree/master/solution/07_ConstructBinaryTree) |
+| 08 | [Next Node In Binary Trees](https://github.com/doocs/coding-interview/tree/master/solution/08_NextNodeInBinaryTrees) |
 
 ## Reading List
 - [ ] [《剑指 Offer》](http://paver62xl.bkt.clouddn.com/%E5%89%91%E6%8C%87OFFER%20%20%E5%90%8D%E4%BC%81%E9%9D%A2%E8%AF%95%E5%AE%98%E7%B2%BE%E8%AE%B2%E5%85%B8%E5%9E%8B%E7%BC%96%E7%A8%8B%E9%A2%98%20%20%E7%AC%AC2%E7%89%88.pdf)
