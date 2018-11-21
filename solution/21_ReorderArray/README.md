@@ -6,6 +6,7 @@
 ### 解法
 此题计算出奇数的个数，就很容易写出来了。
 
+#### 解法一
 ```java
 import java.util.Arrays;
 
@@ -41,6 +42,24 @@ public class Solution {
         }
     }
 
+}
+```
+
+#### 解法二
+```java
+import java.util.Arrays;
+
+public class Solution {
+    public void reOrderArray(int [] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+        Integer[] bak = new Integer[array.length];
+        Arrays.setAll(bak, i -> array[i]);
+        Arrays.sort(bak, (x, y) -> (y & 1) - (x & 1));
+        Arrays.setAll(array, i -> bak[i]);
+    }
+    
 }
 ```
 
