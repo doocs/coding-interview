@@ -4,7 +4,6 @@
  */
 
 public class Solution {
-
     /**
      * 判断字符串是否与模式串匹配
      * 
@@ -16,11 +15,7 @@ public class Solution {
         if (str == null || pattern == null) {
             return false;
         }
-
-        int len1 = str.length;
-        int len2 = pattern.length;
-        return match(str, 0, len1, pattern, 0, len2);
-
+        return match(str, 0, str.length, pattern, 0, pattern.length);
     }
 
     private boolean match(char[] str, int i, int len1, char[] pattern, int j, int len2) {
@@ -28,6 +23,7 @@ public class Solution {
             return true;
         }
 
+        // "",".*"
         if (i != len1 && j == len2) {
             return false;
         }
@@ -37,12 +33,15 @@ public class Solution {
                 return match(str, i, len1, pattern, j + 2, len2) || match(str, i + 1, len1, pattern, j, len2)
                         || match(str, i + 1, len1, pattern, j + 2, len2);
             }
-            return match(str, i, len1, pattern, j + 2, len2);
-        }
 
-        if (i < len1 && j < len2 && (str[i] == pattern[j] || pattern[j] == '.')) {
+            // "",".*"
+            return match(str, i, len1, pattern, j + 2, len2);
+
+        }
+        if (i < len1 && (str[i] == pattern[j] || pattern[j] == '.')) {
             return match(str, i + 1, len1, pattern, j + 1, len2);
         }
         return false;
+
     }
 }
