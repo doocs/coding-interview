@@ -27,6 +27,7 @@
 | 18_02 | [Delete Duplicated Node](/solution/18_02_DeleteDuplicatedNode) |
 | 19 | [Regular Expressions Matching](/solution/19_RegularExpressionsMatching) |
 | 20 | [Numeric Strings](/solution/20_NumericStrings) |
+| 21 | [Reorder Array](/solution/21_ReorderArray) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 148/355
