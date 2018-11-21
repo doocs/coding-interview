@@ -26,9 +26,10 @@
 | 18_01 | [Delete Node In List](/solution/18_01_DeleteNodeInList) |
 | 18_02 | [Delete Duplicated Node](/solution/18_02_DeleteDuplicatedNode) |
 | 19 | [Regular Expressions Matching](/solution/19_RegularExpressionsMatching) |
+| 20 | [Numeric Strings](/solution/20_NumericStrings) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 145/355
+- [ ] 《剑指 Offer》 148/355
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
 - [ ] 《Java 程序员面试笔试宝典》 67/349
 - [ ] 《程序员面试金典》
