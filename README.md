@@ -30,6 +30,7 @@
 | 21 | [Reorder Array](/solution/21_ReorderArray) |
 | 22 | [Kth Node From End](/solution/22_KthNodeFromEnd) |
 | 23 | [Entry Node In List Loop](/solution/23_EntryNodeInListLoop) |
+| 24 | [Reverse List](/solution/24_ReverseList) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 161/355
