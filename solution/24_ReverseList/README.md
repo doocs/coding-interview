@@ -4,6 +4,7 @@
 输入一个链表，反转链表后，输出新链表的表头。
 
 ### 解法
+#### 解法一
 利用头插法解决。
 
 ```java
@@ -48,6 +49,42 @@ public class Solution {
         }
 
         return dummy.next;
+    }
+}
+```
+
+#### 解法二：递归
+
+```java
+/**
+ * @author bingo
+ * @since 2018/11/22
+ */
+
+
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        
+        ListNode next = ReverseList(head.next);
+        ListNode cur = next;
+        while (cur.next != null) {
+            cur = cur.next;
+        }
+        cur.next = head;
+        head.next = null;
+        return next;
     }
 }
 ```
