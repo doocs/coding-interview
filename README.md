@@ -1,6 +1,6 @@
 # Coding Interviews
 
-![doocs-yanglbme-collabocats](http://p9ucdlghd.bkt.clouddn.com/github-doocs-yanglbme-collabocats.png)
+![doocs-yanglbme-collabocats](/img/github-doocs-yanglbme-collabocats.png)
 
 ## Q & A
 ### 剑指 Offer 题集
@@ -29,9 +29,10 @@
 | 20 | [Numeric Strings](/solution/20_NumericStrings) |
 | 21 | [Reorder Array](/solution/21_ReorderArray) |
 | 22 | [Kth Node From End](/solution/22_KthNodeFromEnd) |
+| 23 | [Entry Node In List Loop](/solution/23_EntryNodeInListLoop) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 148/355
+- [ ] 《剑指 Offer》 161/355
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
 - [ ] 《Java 程序员面试笔试宝典》 67/349
 - [ ] 《程序员面试金典》
@@ -44,5 +45,3 @@
 - [ ] 《深入理解 Java 虚拟机》
 - [ ] 《Effective Java 第二版》
 - [ ] 《Java 编程思想》
-
-
