@@ -31,6 +31,7 @@
 | 22 | [Kth Node From End](/solution/22_KthNodeFromEnd) |
 | 23 | [Entry Node In List Loop](/solution/23_EntryNodeInListLoop) |
 | 24 | [Reverse List](/solution/24_ReverseList) |
+| 25 | [Merge Sorted Lists](/solution/25_MergeSortedLists) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 161/355
