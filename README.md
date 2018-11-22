@@ -34,6 +34,7 @@
 | 25 | [Merge Sorted Lists](/solution/25_MergeSortedLists) |
 | 26 | [Substructure In Tree](/solution/26_SubstructureInTree) |
 | 27 | [Mirror Of Binary Tree](/solution/27_MirrorOfBinaryTree) |
+| 28 | [Symmetrical Binary Tree](/solution/28_SymmetricalBinaryTree) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 178/355
