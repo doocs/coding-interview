@@ -32,7 +32,7 @@
 | 23 | [Entry Node In List Loop](/solution/23_EntryNodeInListLoop) |
 | 24 | [Reverse List](/solution/24_ReverseList) |
 | 25 | [Merge Sorted Lists](/solution/25_MergeSortedLists) |
-| 25 | [Substructure In Tree](/solution/26_SubstructureInTree) |
+| 26 | [Substructure In Tree](/solution/26_SubstructureInTree) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 167/355
