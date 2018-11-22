@@ -32,9 +32,10 @@
 | 23 | [Entry Node In List Loop](/solution/23_EntryNodeInListLoop) |
 | 24 | [Reverse List](/solution/24_ReverseList) |
 | 25 | [Merge Sorted Lists](/solution/25_MergeSortedLists) |
+| 25 | [Substructure In Tree](/solution/26_SubstructureInTree) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 161/355
+- [ ] 《剑指 Offer》 167/355
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
 - [ ] 《Java 程序员面试笔试宝典》 67/349
 - [ ] 《程序员面试金典》
