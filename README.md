@@ -35,6 +35,7 @@
 | 26 | [Substructure In Tree](/solution/26_SubstructureInTree) |
 | 27 | [Mirror Of Binary Tree](/solution/27_MirrorOfBinaryTree) |
 | 28 | [Symmetrical Binary Tree](/solution/28_SymmetricalBinaryTree) |
+| 29 | [Print Matrix](/solution/29_PrintMatrix) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 178/355
