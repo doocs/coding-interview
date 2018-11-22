@@ -37,9 +37,10 @@
 | 28 | [Symmetrical Binary Tree](/solution/28_SymmetricalBinaryTree) |
 | 29 | [Print Matrix](/solution/29_PrintMatrix) |
 | 30 | [Min In Stack](/solution/30_MinInStack) |
+| 31 | [Stack Push Pop Order](/solution/31_StackPushPopOrder) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 178/355
+- [ ] 《剑指 Offer》 190/355
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
 - [ ] 《Java 程序员面试笔试宝典》 67/349
 - [ ] 《程序员面试金典》
