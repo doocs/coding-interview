@@ -36,6 +36,7 @@
 | 27 | [Mirror Of Binary Tree](/solution/27_MirrorOfBinaryTree) |
 | 28 | [Symmetrical Binary Tree](/solution/28_SymmetricalBinaryTree) |
 | 29 | [Print Matrix](/solution/29_PrintMatrix) |
+| 30 | [Min In Stack](/solution/30_MinInStack) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 178/355
