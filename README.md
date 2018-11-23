@@ -42,6 +42,8 @@
 | 30 | [Min In Stack](/solution/30_MinInStack) |
 | 31 | [Stack Push Pop Order](/solution/31_StackPushPopOrder) |
 | 32_01 | [Print Tree From Top To Bottom](/solution/32_01_PrintTreeFromTopToBottom) |
+| 32_02 | [Print Trees In Lines](/solution/32_02_PrintTreesInLines) |
+
 
 ## Reading List
 - [ ] 《剑指 Offer》 190/355
