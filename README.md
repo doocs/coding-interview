@@ -44,6 +44,7 @@
 | 32_01 | [Print Tree From Top To Bottom](/solution/32_01_PrintTreeFromTopToBottom) |
 | 32_02 | [Print Trees In Lines](/solution/32_02_PrintTreesInLines) |
 | 32_03 | [Print Trees In Zigzag](/solution/32_03_PrintTreesInZigzag) |
+| 33 | [Squence Of BST](/solution/33_SquenceOfBST) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 190/355
