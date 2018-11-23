@@ -18,7 +18,7 @@
 | 10_01 | [Fibonacci](/solution/10_01_Fibonacci) |
 | 10_02 | [Jump Floor](/solution/10_02_JumpFloor) |
 | 10_03 | [Jump Floor II](/solution/10_03_JumpFloorII) |
-| 10_04 | [Rect Cover](/solution/10_04_10_04_RectCover) |
+| 10_04 | [Rect Cover](/solution/10_04_RectCover) |
 | 11 | [Min Number In Rotated Array](h/solution/11_MinNumberInRotatedArray) |
 | 12 | [String Path In Matrix](/solution/12_StringPathInMatrix) |
 | 13 | [Robot Move](/solution/13_RobotMove) |
@@ -41,6 +41,7 @@
 | 29 | [Print Matrix](/solution/29_PrintMatrix) |
 | 30 | [Min In Stack](/solution/30_MinInStack) |
 | 31 | [Stack Push Pop Order](/solution/31_StackPushPopOrder) |
+| 32_01 | [Print Tree From Top To Bottom](/solution/32_01_PrintTreeFromTopToBottom) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 190/355
