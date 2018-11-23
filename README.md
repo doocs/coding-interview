@@ -15,7 +15,10 @@
 | 08 | [Next Node In Binary Trees](/solution/08_NextNodeInBinaryTrees) |
 | 09_01 | [Queue With Two Stacks](/solution/09_01_QueueWithTwoStacks) |
 | 09_02 | [Stack With Two Queues](/solution/09_02_StackWithTwoQueues) |
-| 10 | [Fibonacci](/solution/10_Fibonacci) |
+| 10_01 | [Fibonacci](/solution/10_01_Fibonacci) |
+| 10_02 | [Jump Floor](/solution/10_02_JumpFloor) |
+| 10_03 | [Jump Floor II](/solution/10_03_JumpFloorII) |
+| 10_04 | [Rect Cover](/solution/10_04_10_04_RectCover) |
 | 11 | [Min Number In Rotated Array](h/solution/11_MinNumberInRotatedArray) |
 | 12 | [String Path In Matrix](/solution/12_StringPathInMatrix) |
 | 13 | [Robot Move](/solution/13_RobotMove) |
