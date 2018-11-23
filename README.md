@@ -45,9 +45,10 @@
 | 32_02 | [Print Trees In Lines](/solution/32_02_PrintTreesInLines) |
 | 32_03 | [Print Trees In Zigzag](/solution/32_03_PrintTreesInZigzag) |
 | 33 | [Squence Of BST](/solution/33_SquenceOfBST) |
+| 34 | [Path In Tree](/solution/34_PathInTree) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 190/355
+- [ ] 《剑指 Offer》 201/355
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
 - [ ] 《Java 程序员面试笔试宝典》 67/349
 - [ ] 《程序员面试金典》
