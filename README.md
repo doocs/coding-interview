@@ -47,6 +47,7 @@
 | 33 | [Squence Of BST](/solution/33_SquenceOfBST) |
 | 34 | [Path In Tree](/solution/34_PathInTree) |
 | 35 | [Copy Complex List](/solution/35_CopyComplexList) |
+| 36 | [Convert Binary Search Tree](/solution/36_ConvertBinarySearchTree) |
 
 ## Reading List
 - [ ] 《剑指 Offer》 210/355
