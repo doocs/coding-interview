@@ -55,6 +55,7 @@
 | 35 | [Copy Complex List](/solution/剑指Offer/35_CopyComplexList) |
 | 36 | [Convert Binary Search Tree](/solution/剑指Offer/36_ConvertBinarySearchTree) |
 | 39 | [More Than Half Number](/solution/剑指Offer/39_MoreThanHalfNumber) |
+| 40 | [K Least Numbers](/solution/剑指Offer/40_KLeastNumbers) |
 
 ### 编程之美题集
 | # | Title |
