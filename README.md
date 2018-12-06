@@ -3,7 +3,13 @@
 ![doocs-yanglbme-collabocats](/img/github-doocs-yanglbme-collabocats.png)
 
 ## Q & A
-### 剑指 Offer 题集
+### 剑指 Offer
+#### 剑指 Offer 在线刷
+- [AcWing](https://www.acwing.com/problem/)
+- [NowCoder](https://www.nowcoder.com/ta/coding-interviews)
+
+#### 剑指 Offer 题解
+
 | # | Title |
 |---|---|
 | 03_01 | [Find Duplication In Array](/solution/剑指Offer/03_01_DuplicationInArray) |
@@ -48,6 +54,7 @@
 | 34 | [Path In Tree](/solution/剑指Offer/34_PathInTree) |
 | 35 | [Copy Complex List](/solution/剑指Offer/35_CopyComplexList) |
 | 36 | [Convert Binary Search Tree](/solution/剑指Offer/36_ConvertBinarySearchTree) |
+| 39 | [More Than Half Number](/solution/剑指Offer/39_MoreThanHalfNumber) |
 
 ### 编程之美题集
 | # | Title |
