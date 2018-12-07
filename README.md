@@ -57,6 +57,7 @@
 | 39 | [More Than Half Number](/solution/剑指Offer/39_MoreThanHalfNumber) |
 | 40 | [K Least Numbers](/solution/剑指Offer/40_KLeastNumbers) |
 | 41 | [Stream Median](/solution/剑指Offer/41_StreamMedian) |
+| 42 | [Greatest Sum Of Subarrays](/solution/剑指Offer/42_GreatestSumOfSubarrays) |
 
 ### 编程之美题集
 | # | Title |
