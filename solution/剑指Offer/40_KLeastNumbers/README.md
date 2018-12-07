@@ -11,11 +11,11 @@
 
 判断选中数字的下标 `index`：
 
-- 如果 `index = k-1`，结束循环，返回前k个数
+- 如果 `index = k-1`，结束循环，返回前 k 个数。
 - 如果 `index > k-1`，那么接着在 index 的左边进行 partition。
 - 如果 `index < k-1`，则在 index 的右边继续进行 partition。
 
-**注意：**这种方法会修改输入的数组。时间复杂度为 `O(n)`。
+**注意**，这种方法会修改输入的数组。时间复杂度为 `O(n)`。
 
 ```java
 import java.util.ArrayList;
