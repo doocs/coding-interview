@@ -4,11 +4,11 @@
 
 ## Q & A
 ### 剑指 Offer
-#### 剑指 Offer 在线刷
-- [AcWing](https://www.acwing.com/problem/)
-- [NowCoder](https://www.nowcoder.com/ta/coding-interviews)
+推荐两个在线刷《剑指 Offer》题目的网站：
 
-#### 剑指 Offer 题解
+- [AcWing](https://www.acwing.com/problem/)：团队成员来自清华北大。
+- [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：创始人曾就职谷歌、阿里等大厂。
+
 
 | # | Title |
 |---|---|
@@ -58,6 +58,7 @@
 | 40 | [K Least Numbers](/solution/剑指Offer/40_KLeastNumbers) |
 | 41 | [Stream Median](/solution/剑指Offer/41_StreamMedian) |
 | 42 | [Greatest Sum Of Subarrays](/solution/剑指Offer/42_GreatestSumOfSubarrays) |
+| 44 | [Digits In Sequence](/solution/剑指Offer/44_DigitsInSequence) |
 
 ### 编程之美题集
 | # | Title |
