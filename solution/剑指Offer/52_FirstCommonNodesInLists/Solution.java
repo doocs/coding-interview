@@ -38,11 +38,11 @@ class Solution {
                 p2 = p2.next;
             }
         }
-        while (p1 != p2) {
+        while (p1 != p2 && p1 != null && p2 != null) {
             p1 = p1.next;
             p2 = p2.next;
         }
-        return p1;
+        return (p1 == null || p2 == null) ? null : p1;
     }
 
     private int len(ListNode head) {
