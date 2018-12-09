@@ -61,6 +61,7 @@
 | 45 | [Sort Array For Min Number](/solution/剑指Offer/45_SortArrayForMinNumber) |
 | 46 | [Translate Numbers To Strings](/solution/剑指Offer/46_TranslateNumbersToStrings) |
 | 47 | [Max Value Of Gifts](/solution/剑指Offer/47_MaxValueOfGifts) |
+| 48 | [Longest Substring Without Dup](/solution/剑指Offer/48_LongestSubstringWithoutDup) |
 
 ### 编程之美题集
 | # | Title |
