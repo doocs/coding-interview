@@ -59,6 +59,7 @@
 | 41 | [Stream Median](/solution/剑指Offer/41_StreamMedian) |
 | 42 | [Greatest Sum Of Subarrays](/solution/剑指Offer/42_GreatestSumOfSubarrays) |
 | 44 | [Digits In Sequence](/solution/剑指Offer/44_DigitsInSequence) |
+| 45 | [Sort Array For Min Number](/solution/剑指Offer/45_SortArrayForMinNumber) |
 
 ### 编程之美题集
 | # | Title |
