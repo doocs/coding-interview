@@ -6,8 +6,8 @@
 ### 剑指 Offer
 推荐两个在线刷《剑指 Offer》题目的网站：
 
-- [AcWing](https://www.acwing.com/problem/)：团队成员来自清华北大。
-- [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：创始人曾就职谷歌、阿里等大厂。
+- [AcWing](https://www.acwing.com/problem/)：墙裂推荐，今年刚创办，团队成员来自北大清华，剑指 Offer 第二版题目都有。
+- [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
 
 | # | Title |
@@ -66,7 +66,7 @@
 | 01_02 | [中国象棋将帅问题](/solution/编程之美/01_02_中国象棋将帅问题) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 210/355
+- [ ] 《剑指 Offer》 246/355 227
 - [ ] 《编程珠玑第二版》 
 - [ ] 《编程之美：微软技术面试心得》 57/382  20
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》

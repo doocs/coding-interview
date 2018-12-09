@@ -1,4 +1,3 @@
-
 /**
  * @author bingo
  * @since 2018/12/7
@@ -7,7 +6,7 @@
 public class Solution {
     /**
      * 求数字序列中某一位的数字
-     * 
+     *
      * @param n 第n位
      * @return 第n位的数字
      */
@@ -17,7 +16,7 @@ public class Solution {
         }
         int digits = 1;
         while (true) {
-            int numbers = countOfIntegers(digits);
+            long numbers = countOfIntegers(digits);
             if (n < digits * numbers) {
                 break;
             }
@@ -28,7 +27,7 @@ public class Solution {
 
     }
 
-    private int countOfIntegers(int digits) {
+    private long countOfIntegers(int digits) {
         return digits == 1 ? 10 : (int) (9 * Math.pow(10, digits - 1));
     }
 
@@ -44,6 +43,5 @@ public class Solution {
 
     private int getBeginNumber(int digits) {
         return digits == 1 ? 0 : (int) Math.pow(10, digits - 1);
-
     }
 }
