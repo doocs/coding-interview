@@ -4,7 +4,6 @@
 
 ## Q & A
 ### 剑指 Offer
-推荐两个在线刷《剑指 Offer》题目的网站：
 
 - [AcWing](https://www.acwing.com/problem/)：墙裂推荐，今年刚创办，团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
@@ -60,6 +59,7 @@
 | 42 | [Greatest Sum Of Subarrays](/solution/剑指Offer/42_GreatestSumOfSubarrays) |
 | 44 | [Digits In Sequence](/solution/剑指Offer/44_DigitsInSequence) |
 | 45 | [Sort Array For Min Number](/solution/剑指Offer/45_SortArrayForMinNumber) |
+| 46 | [Translate Numbers To Strings](/solution/剑指Offer/46_TranslateNumbersToStrings) |
 
 ### 编程之美题集
 | # | Title |
