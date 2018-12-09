@@ -5,7 +5,7 @@
 ## Q & A
 ### 剑指 Offer
 
-- [AcWing](https://www.acwing.com/problem/)：墙裂推荐，今年刚创办，团队成员来自北大清华，剑指 Offer 第二版题目都有。
+- [AcWing](https://www.acwing.com/problem/)：墙裂推荐，今年刚创办，功能在慢慢完善中，团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
 
@@ -62,6 +62,7 @@
 | 46 | [Translate Numbers To Strings](/solution/剑指Offer/46_TranslateNumbersToStrings) |
 | 47 | [Max Value Of Gifts](/solution/剑指Offer/47_MaxValueOfGifts) |
 | 48 | [Longest Substring Without Dup](/solution/剑指Offer/48_LongestSubstringWithoutDup) |
+| 52 | [First Common Nodes In Lists](/solution/剑指Offer/52_FirstCommonNodesInLists) |
 
 ### 编程之美题集
 | # | Title |
@@ -69,7 +70,7 @@
 | 01_02 | [中国象棋将帅问题](/solution/编程之美/01_02_中国象棋将帅问题) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 246/355 227
+- [ ] 《剑指 Offer》 259/355 240
 - [ ] 《编程珠玑第二版》 
 - [ ] 《编程之美：微软技术面试心得》 57/382  20
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
@@ -84,3 +85,4 @@
 - [ ] 《深入理解 Java 虚拟机》
 - [ ] 《Effective Java 第二版》
 - [ ] 《Java 编程思想》
+- [ ] 《鸟哥的 Linux 私房菜》
