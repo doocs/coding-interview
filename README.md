@@ -1,6 +1,13 @@
 # Coding Interviews
 
-![doocs-yanglbme-collabocats](/img/github-doocs-yanglbme-collabocats.png)
+<p align="center">
+  <a href="/"><img src="/img/github-doocs-yanglbme-collabocats.png" alt="Coding-Interviews"></a>
+</p>
+
+<p align="center">
+  <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
+</p>
+
 
 ## Q & A
 ### 剑指 Offer
@@ -64,6 +71,7 @@
 | 48 | [Longest Substring Without Dup](/solution/剑指Offer/48_LongestSubstringWithoutDup) |
 | 52 | [First Common Nodes In Lists](/solution/剑指Offer/52_FirstCommonNodesInLists) |
 | 53_01 | [Number Of K](/solution/剑指Offer/53_01_NumberOfK) |
+| 53_02 | [Missing Number](/solution/剑指Offer/53_02_MissingNumber) |
 
 ### 编程之美题集
 | # | Title |
