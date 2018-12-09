@@ -63,6 +63,7 @@
 | 47 | [Max Value Of Gifts](/solution/剑指Offer/47_MaxValueOfGifts) |
 | 48 | [Longest Substring Without Dup](/solution/剑指Offer/48_LongestSubstringWithoutDup) |
 | 52 | [First Common Nodes In Lists](/solution/剑指Offer/52_FirstCommonNodesInLists) |
+| 53_01 | [Number Of K](/solution/剑指Offer/53_01_NumberOfK) |
 
 ### 编程之美题集
 | # | Title |
