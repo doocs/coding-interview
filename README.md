@@ -1,7 +1,7 @@
 # Coding Interviews
 
 <p align="center">
-  <a href="/"><img src="/img/github-doocs-yanglbme-collabocats.png" alt="Coding-Interviews"></a>
+  <a href="https://github.com/doocs/coding-interview"><img src="/img/github-doocs-yanglbme-collabocats.png" alt="Coding-Interviews"></a>
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
 ## Q & A
 ### 剑指 Offer
 
-- [AcWing](https://www.acwing.com/problem/)：墙裂推荐，今年刚创办，功能在慢慢完善中，团队成员来自北大清华，剑指 Offer 第二版题目都有。
+- [AcWing](https://www.acwing.com/problem/)：墙裂推荐，支持 Java11。团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
 
@@ -72,6 +72,7 @@
 | 52 | [First Common Nodes In Lists](/solution/剑指Offer/52_FirstCommonNodesInLists) |
 | 53_01 | [Number Of K](/solution/剑指Offer/53_01_NumberOfK) |
 | 53_02 | [Missing Number](/solution/剑指Offer/53_02_MissingNumber) |
+| 53_03 | [Integer Identical To Index](/solution/剑指Offer/53_03_IntegerIdenticalToIndex) |
 
 ### 编程之美题集
 | # | Title |
