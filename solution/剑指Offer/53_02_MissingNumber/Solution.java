@@ -12,7 +12,7 @@ class Solution {
      */
     public int getMissingNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
-            return -1;
+            return 0;
         }
         int n = nums.length;
         int start = 0, end = n - 1;

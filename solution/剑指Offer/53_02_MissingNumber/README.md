@@ -1,4 +1,4 @@
-## 0到n-1中缺失的数字
+## [0到n-1中缺失的数字](https://www.acwing.com/problem/content/64/)
 
 ### 题目描述
 一个长度为 `n-1` 的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围 `0` 到 `n-1` 之内。
@@ -35,7 +35,7 @@ class Solution {
      */
     public int getMissingNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
-            return -1;
+            return 0;
         }
         int n = nums.length;
         int start = 0, end = n - 1;
