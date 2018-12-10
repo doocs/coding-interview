@@ -74,6 +74,7 @@
 | 53_02 | [Missing Number](/solution/剑指Offer/53_02_MissingNumber) |
 | 53_03 | [Integer Identical To Index](/solution/剑指Offer/53_03_IntegerIdenticalToIndex) |
 | 55_01 | [Tree Depth](/solution/剑指Offer/55_01_TreeDepth) |
+| 55_02 | [Balanced Binary Tree](/solution/剑指Offer/55_02_BalancedBinaryTree) |
 
 ### 编程之美题集
 | # | Title |
