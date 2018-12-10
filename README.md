@@ -76,6 +76,7 @@
 | 55_01 | [Tree Depth](/solution/剑指Offer/55_01_TreeDepth) |
 | 55_02 | [Balanced Binary Tree](/solution/剑指Offer/55_02_BalancedBinaryTree) |
 | 56_01 | [Numbers Appear Once](/solution/剑指Offer/56_01_NumbersAppearOnce) |
+| 56_02 | [Number Appearing Once](/solution/剑指Offer/56_02_NumberAppearingOnce) |
 
 ### 编程之美题集
 | # | Title |
