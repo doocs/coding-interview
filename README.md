@@ -82,6 +82,7 @@
 | 57_01 | [Two Numbers With Sum](/solution/剑指Offer/57_01_TwoNumbersWithSum) |
 | 57_02 | [Continuous Squence With Sum](/solution/剑指Offer/57_02_ContinuousSquenceWithSum) |
 | 58_01 | [Reverse Words In Sentence](/solution/剑指Offer/58_01_ReverseWordsInSentence) |
+| 58_02 | [Left Rotate String](/solution/剑指Offer/58_02_LeftRotateString) |
 
 ### 编程之美题集
 | # | Title |
