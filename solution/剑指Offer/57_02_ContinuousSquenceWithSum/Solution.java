@@ -6,6 +6,13 @@ import java.util.*;
  */
 
 class Solution {
+
+    /**
+     * 找出和为sum的连续正整数序列
+     * 
+     * @param sum 和
+     * @return 结果列表
+     */
     public List<List<Integer>> findContinuousSequence(int sum) {
         List<List<Integer>> res = new ArrayList<>();
         if (sum < 3) {
