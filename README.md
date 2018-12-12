@@ -5,6 +5,8 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/doocs/coding-interview/stargazers"><img src="https://img.shields.io/github/stars/doocs/coding-interview.svg" alt="stars"></a>
+  <a href="https://github.com/doocs/coding-interview/network/members"><img src="https://img.shields.io/github/forks/doocs/coding-interview.svg" alt="forks"></a>
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
 </p>
 
@@ -78,6 +80,7 @@
 | 56_01 | [Numbers Appear Once](/solution/剑指Offer/56_01_NumbersAppearOnce) |
 | 56_02 | [Number Appearing Once](/solution/剑指Offer/56_02_NumberAppearingOnce) |
 | 57_01 | [Two Numbers With Sum](/solution/剑指Offer/57_01_TwoNumbersWithSum) |
+| 57_02 | [Continuous Squence With Sum](/solution/剑指Offer/57_02_ContinuousSquenceWithSum) |
 
 ### 编程之美题集
 | # | Title |
@@ -85,7 +88,7 @@
 | 01_02 | [中国象棋将帅问题](/solution/编程之美/01_02_中国象棋将帅问题) |
 
 ## Reading List
-- [ ] 《剑指 Offer》 259/355 240
+- [ ] 《剑指 Offer》 302/355 283
 - [ ] 《编程珠玑第二版》 
 - [ ] 《编程之美：微软技术面试心得》 57/382  20
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
