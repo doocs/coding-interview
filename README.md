@@ -89,6 +89,7 @@
 | 63 | [Maximal Profit](/solution/剑指Offer/63_MaximalProfit) |
 | 64 | [Accumulate](/solution/剑指Offer/64_Accumulate) |
 | 65 | [Add Two Numbers](/solution/剑指Offer/65_AddTwoNumbers) |
+| 66 | [Constuct Array](/solution/剑指Offer/66_ConstuctArray) |
 
 
 ### 编程之美题集
