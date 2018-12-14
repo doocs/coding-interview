@@ -1,7 +1,18 @@
-## 不修改数组找出重复的数字
+## [不修改数组找出重复的数字](https://www.acwing.com/problem/content/15/)
 
 ### 题目描述
-在一个长度为 `n+1` 的数组里的所有数字都在 `1` 到 `n` 的范围内，所以数组中至少有一个数字是重复的。请找出数组中任意一个重复的数字，但不能修改输入的数组。例如，如果输入长度为 `8` 的数组 `{2, 3, 5, 4, 3, 2, 6, 7}`，那么对应的输出是重复的数字 `2` 或者 `3`。
+给定一个长度为 `n+1` 的数组 `nums`，数组中所有的数均在 `1∼n` 的范围内，其中 `n≥1`。
+
+请找出数组中任意一个重复的数，但不能修改输入的数组。
+
+**样例**
+```
+给定 nums = [2, 3, 5, 4, 3, 2, 6, 7]。
+
+返回 2 或 3。
+```
+
+**思考题**：如果只能使用 `O(1)` 的额外空间，该怎么做呢？
 
 
 ### 解法
@@ -18,64 +29,57 @@
 ```java
 /**
  * @author bingo
- * @since 2018/10/27
+ * @since 2018/12/13
  */
 
-public class Solution {
+class Solution {
+
     /**
-     * 不修改数组查找重复的元素，没有则返回-1
-     * @param numbers 数组
+     * 不修改数组查找重复的元素，没有则返回0
+     *
+     * @param nums 数组
      * @return 重复的元素
      */
-    public int getDuplication(int[] numbers) {
-        if (numbers == null || numbers.length < 1) {
-            return -1;
+    public int duplicateInArray(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
         }
-
-        int start = 1;
-        int end = numbers.length - 1;
-        while (end >= start) {
-            int middle = start + ((end - start) >> 1);
-
-            // 调用 log n 次
-            int count = countRange(numbers, start, middle);
+        int start = 1, end = nums.length - 1;
+        while (start <= end) {
+            int mid = start + ((end - start) >> 1);
+            int cnt = getCountRange(nums, start, mid);
             if (start == end) {
-                if (count > 1) {
+                if (cnt > 1) {
+                    // 找到重复的数字
                     return start;
                 }
                 break;
+            }
+            if (cnt > mid - start + 1) {
+                end = mid;
             } else {
-                // 无法找出所有重复的数
-                if (count > (middle - start) + 1) {
-                    end = middle;
-                } else {
-                    start = middle + 1;
-                }
+                start = mid + 1;
             }
         }
-        return -1;
+        return 0;
     }
 
-
     /**
-     * 计算整个数组中有多少个数的取值在[start, end] 之间
-     * 时间复杂度 O(n)
-     * @param numbers 数组
-     * @param start 左边界
-     * @param end 右边界
+     * 计算整个数组中有多少个数的取值在[from, to] 之间
+     *
+     * @param nums 数组
+     * @param from 左边界
+     * @param to 右边界
      * @return 数量
      */
-    private int countRange(int[] numbers, int start, int end) {
-        if (numbers == null) {
-            return 0;
-        }
-        int count = 0;
-        for(int e : numbers) {
-            if (e >= start && e <= end) {
-                ++count;
+    private int getCountRange(int[] nums, int from, int to) {
+        int cnt = 0;
+        for (int e : nums) {
+            if (e >= from && e <= to) {
+                ++cnt;
             }
         }
-        return count;
+        return cnt;
     }
 }
 ```
@@ -84,3 +88,8 @@ public class Solution {
 1. 长度为 n 的数组中包含一个或多个重复的数字；
 2. 数组中不包含重复的数字；
 3. 无效测试输入用例（输入空指针）。
+
+### 题目导航
+1. [返回上一题](/solution/剑指Offer/03_01_DuplicationInArray/README.md)
+2. [进入下一题](/solution/剑指Offer/04_FindInPartiallySortedMatrix/README.md)
+3. [回到题目列表](../README.md)

@@ -1,62 +1,55 @@
 /**
  * @author bingo
- * @since 2018/10/27
+ * @since 2018/12/13
  */
 
-public class Solution {
+class Solution {
+
     /**
-     * 不修改数组查找重复的元素，没有则返回-1
-     * @param numbers 数组
+     * 不修改数组查找重复的元素，没有则返回0
+     *
+     * @param nums 数组
      * @return 重复的元素
      */
-    public int getDuplication(int[] numbers) {
-        if (numbers == null || numbers.length < 1) {
-            return -1;
+    public int duplicateInArray(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
         }
-
-        int start = 1;
-        int end = numbers.length - 1;
-        while (end >= start) {
-            int middle = start + ((end - start) >> 1);
-
-            // 调用 log n 次
-            int count = countRange(numbers, start, middle);
+        int start = 1, end = nums.length - 1;
+        while (start <= end) {
+            int mid = start + ((end - start) >> 1);
+            int cnt = getCountRange(nums, start, mid);
             if (start == end) {
-                if (count > 1) {
+                if (cnt > 1) {
+                    // 找到重复的数字
                     return start;
                 }
                 break;
+            }
+            if (cnt > mid - start + 1) {
+                end = mid;
             } else {
-                // 无法找出所有重复的数
-                if (count > (middle - start) + 1) {
-                    end = middle;
-                } else {
-                    start = middle + 1;
-                }
+                start = mid + 1;
             }
         }
-        return -1;
+        return 0;
     }
 
-
     /**
-     * 计算整个数组中有多少个数的取值在[start, end] 之间
-     * 时间复杂度 O(n)
-     * @param numbers 数组
-     * @param start 左边界
-     * @param end 右边界
+     * 计算整个数组中有多少个数的取值在[from, to] 之间
+     *
+     * @param nums 数组
+     * @param from 左边界
+     * @param to   右边界
      * @return 数量
      */
-    private int countRange(int[] numbers, int start, int end) {
-        if (numbers == null) {
-            return 0;
-        }
-        int count = 0;
-        for(int e : numbers) {
-            if (e >= start && e <= end) {
-                ++count;
+    private int getCountRange(int[] nums, int from, int to) {
+        int cnt = 0;
+        for (int e : nums) {
+            if (e >= from && e <= to) {
+                ++cnt;
             }
         }
-        return count;
+        return cnt;
     }
 }
