@@ -1,8 +1,20 @@
 ## 找出数组中重复的数字
 
 ### 题目描述
-在一个长度为 `n` 的数组里的所有数字都在 `0` 到 `n-1` 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为 `7` 的数组 `{2, 3, 1, 0, 2, 5, 3}`，那么对应的输出是重复的数字 `2` 或者 `3`。
+给定一个长度为 `n` 的整数数组 `nums`，数组中所有的数字都在 `0∼n−1` 的范围内。
 
+数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。
+
+请找出数组中任意一个重复的数字。
+
+**注意**：如果某些数字不在 `0∼n−1` 的范围内，或数组中不包含重复数字，则返回 `-1`；
+
+**样例**
+```
+给定 nums = [2, 3, 5, 4, 3, 2, 6, 7]。
+
+返回 2 或 3。
+```
 
 ### 解法
 #### 解法一
@@ -21,47 +33,46 @@
 此算法时间复杂度为 `O(n)`，因为每个元素最多只要两次交换，就能确定位置。空间复杂度为 `O(1)`。
 
 ```java
-
 /**
  * @author bingo
- * @since 2018/10/27
+ * @since 2018/12/13
  */
 
-public class Solution {
+class Solution {
+    
     /**
      * 查找数组中的重复元素
-     * @param numbers 数组
-     * @param length 数组长度
-     * @param duplication duplication[0]存储重复元素
-     * @return boolean
+     * 
+     * @param nums 数组
+     * @return 其中一个重复的元素
      */
-    public boolean duplicate(int[] numbers, int length, int[] duplication) {
-        if (numbers == null || length < 1) {
-            return false;
-        }
-        for (int e : numbers) {
-            if (e >= length) {
-                return false;
-            }
+    public int duplicateInArray(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return -1;
         }
 
-        for (int i = 0; i < length; ++i) {
-            while (numbers[i] != i) {
-                if (numbers[i] == numbers[numbers[i]]) {
-                    duplication[0] = numbers[i];
-                    return true;
+        int n = nums.length;
+        for (int e : nums) {
+            if (e < 0 || e > n - 1) {
+                return -1;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] != i) {
+                int val = nums[nums[i]];
+                if (nums[i] == val) {
+                    return val;
                 }
-                swap(numbers, i, numbers[i]);
+                swap(nums, i, nums[i]);
             }
         }
-
-        return false;
+        return -1;
     }
 
-    private void swap(int[] numbers, int i, int j) {
-        int t = numbers[i];
-        numbers[i] = numbers[j];
-        numbers[j] = t;
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
 ```

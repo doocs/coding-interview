@@ -1,43 +1,42 @@
-
 /**
  * @author bingo
- * @since 2018/10/27
+ * @since 2018/12/13
  */
 
-public class Solution {
+class Solution {
+    
     /**
      * 查找数组中的重复元素
-     * @param numbers 数组
-     * @param length 数组长度
-     * @param duplication duplication[0]存储重复元素
-     * @return boolean
+     * 
+     * @param nums 数组
+     * @return 其中一个重复的元素
      */
-    public boolean duplicate(int[] numbers, int length, int[] duplication) {
-        if (numbers == null || length < 1) {
-            return false;
-        }
-        for (int e : numbers) {
-            if (e >= length) {
-                return false;
-            }
+    public int duplicateInArray(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return -1;
         }
 
-        for (int i = 0; i < length; ++i) {
-            while (numbers[i] != i) {
-                if (numbers[i] == numbers[numbers[i]]) {
-                    duplication[0] = numbers[i];
-                    return true;
+        int n = nums.length;
+        for (int e : nums) {
+            if (e < 0 || e > n - 1) {
+                return -1;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] != i) {
+                int val = nums[nums[i]];
+                if (nums[i] == val) {
+                    return val;
                 }
-                swap(numbers, i, numbers[i]);
+                swap(nums, i, nums[i]);
             }
         }
-
-        return false;
+        return -1;
     }
 
-    private void swap(int[] numbers, int i, int j) {
-        int t = numbers[i];
-        numbers[i] = numbers[j];
-        numbers[j] = t;
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }
