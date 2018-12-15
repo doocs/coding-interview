@@ -1,42 +1,42 @@
-
-/**
-*    public class ListNode {
-*        int val;
-*        ListNode next = null;
-*
-*        ListNode(int val) {
-*            this.val = val;
-*        }
-*    }
-*
-*/
-import java.util.ArrayList;
-import java.util.Stack;
-
 /**
  * @author bingo
- * @since 2018/10/28
+ * @since 2018/12/15
  */
-public class Solution {
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+
     /**
      * 从尾到头打印链表
-     * @param listNode 链表头节点
-     * @return list
+     *
+     * @param head 链表头结点
+     * @return 结果数组
      */
-    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        ArrayList<Integer> res = new ArrayList<>();
-        if (listNode == null) {
-            return res;
+    public int[] printListReversingly(ListNode head) {
+        if (head == null) {
+            return null;
         }
         Stack<Integer> stack = new Stack<>();
-        while (listNode != null) {
-            stack.push(listNode.val);
-            listNode = listNode.next;
+        ListNode cur = head;
+        int cnt = 0;
+        while (cur != null) {
+            stack.push(cur.val);
+            cur = cur.next;
+            ++cnt;
         }
+
+        int[] res = new int[cnt];
+        int i = 0;
         while (!stack.isEmpty()) {
-            res.add(stack.pop());
+            res[i++] = stack.pop();
         }
-        
         return res;
     }
 }
