@@ -1,32 +1,31 @@
 /**
  * @author bingo
- * @since 2018/10/27
+ * @since 2018/12/15
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 二维数组中的查找
-     * @param target 目标值
+     *
      * @param array 二维数组
-     * @return boolean
+     * @param target 要查找的值
+     * @return 是否找到该值
      */
-    public boolean find(int target, int[][] array) {
-        if (array == null) {
+    public boolean searchArray(int[][] array, int target) {
+        if (array == null || array.length < 1) {
             return false;
         }
-        int rows = array.length;
-        int columns = array[0].length;
-
-        int i = rows - 1;
-        int j = 0;
-        while (i >= 0 && j < columns) {
+        int m = array.length, n = array[0].length;
+        int i = 0, j = n - 1;
+        while (i < m && j >= 0) {
             if (array[i][j] == target) {
                 return true;
             }
             if (array[i][j] < target) {
-                ++j;
+                ++i;
             } else {
-                --i;
+                --j;
             }
         }
         return false;
