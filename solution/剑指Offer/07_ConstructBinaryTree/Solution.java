@@ -1,61 +1,51 @@
 /**
- * Definition for binary tree
- * public class TreeNode {
+ * @author bingo
+ * @since 2018/12/15
+ */
+
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
  */
+class Solution {
 
-/**
- * @author bingo
- * @since 2018/10/28
- */
-
-public class Solution {
     /**
      * 重建二叉树
-     * 
-     * @param pre 先序序列
-     * @param in  中序序列
+     *
+     * @param preorder 前序遍历序列
+     * @param inorder 中序遍历序列
      * @return 二叉树根结点
      */
-    public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-        if (pre == null || in == null || pre.length != in.length) {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder == null || inorder == null || preorder.length == 0 || preorder.length != inorder.length) {
             return null;
         }
-        int n = pre.length;
-        return constructBinaryTree(pre, 0, n - 1, in, 0, n - 1);
+
+        return build(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
 
-    private TreeNode constructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
-        TreeNode node = new TreeNode(pre[startPre]);
-        if (startPre == endPre) {
-            if (startIn == endIn) {
-                return node;
+    private TreeNode build(int[] preorder, int[] inorder, int s1, int e1, int s2, int e2) {
+        int rootVal = preorder[s1];
+        TreeNode root = new TreeNode(rootVal);
+        if (s1 == e1) {
+            return root;
+        }
+
+        int i = s2, cnt = 0;
+        for (; i <= e2; ++i) {
+            if (inorder[i] == rootVal) {
+                break;
             }
-            throw new IllegalArgumentException("Invalid input!");
+            ++cnt;
         }
 
-        int inOrder = startIn;
-        while (in[inOrder] != pre[startPre]) {
-            ++inOrder;
-            if (inOrder > endIn) {
-                new IllegalArgumentException("Invalid input!");
-            }
-        }
-        int len = inOrder - startIn;
-        if (len > 0) {
-            // 递归构建左子树
-            node.left = constructBinaryTree(pre, startPre + 1, startPre + len, in, startIn, inOrder - 1);
-        }
-
-        if (inOrder < endIn) {
-            // 递归构建右子树
-            node.right = constructBinaryTree(pre, startPre + len + 1, endPre, in, inOrder + 1, endIn);
-        }
-        return node;
-
+        root.left = cnt > 0 ? build(preorder, inorder, s1 + 1, s1 + cnt, s2, i - 1) : null;
+        root.right = i < e2 ? build(preorder, inorder, s1 + cnt + 1, e1, i + 1, e2) : null;
+        return root;
     }
 }

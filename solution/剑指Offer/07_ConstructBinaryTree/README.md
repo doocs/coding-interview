@@ -1,8 +1,22 @@
-## 重建二叉树
+## [重建二叉树](https://www.acwing.com/problem/content/description/23/)
 
 ### 题目描述
-输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列 `{1,2,4,7,3,5,6,8}` 和中序遍历序列 `{4,7,2,1,5,3,8,6}`，则重建二叉树并返回。
+输入一棵二叉树前序遍历和中序遍历的结果，请重建该二叉树。
 
+**样例**
+```
+给定：
+前序遍历是：[3, 9, 20, 15, 7]
+中序遍历是：[9, 3, 15, 20, 7]
+
+返回：[3, 9, 20, null, null, 15, 7, null, null, null, null]
+返回的二叉树如下所示：
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
 
 ### 解法
 在二叉树的前序遍历序列中，第一个数字总是根结点的值。在中序遍历序列中，根结点的值在序列的中间，左子树的结点位于根结点左侧，而右子树的结点位于根结点值的右侧。
@@ -13,70 +27,64 @@
 
 ```java
 /**
- * Definition for binary tree
- * public class TreeNode {
+ * @author bingo
+ * @since 2018/12/15
+ */
+
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
  */
+class Solution {
 
-/**
- * @author bingo
- * @since 2018/10/28
- */
-
-public class Solution {
     /**
      * 重建二叉树
-     * 
-     * @param pre 先序序列
-     * @param in  中序序列
+     *
+     * @param preorder 前序遍历序列
+     * @param inorder 中序遍历序列
      * @return 二叉树根结点
      */
-    public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-        if (pre == null || in == null || pre.length != in.length) {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder == null || inorder == null || preorder.length == 0 || preorder.length != inorder.length) {
             return null;
         }
-        int n = pre.length;
-        return constructBinaryTree(pre, 0, n - 1, in, 0, n - 1);
+
+        return build(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
 
-    private TreeNode constructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
-        TreeNode node = new TreeNode(pre[startPre]);
-        if (startPre == endPre) {
-            if (startIn == endIn) {
-                return node;
+    private TreeNode build(int[] preorder, int[] inorder, int s1, int e1, int s2, int e2) {
+        int rootVal = preorder[s1];
+        TreeNode root = new TreeNode(rootVal);
+        if (s1 == e1) {
+            return root;
+        }
+
+        int i = s2, cnt = 0;
+        for (; i <= e2; ++i) {
+            if (inorder[i] == rootVal) {
+                break;
             }
-            throw new IllegalArgumentException("Invalid input!");
+            ++cnt;
         }
 
-        int inOrder = startIn;
-        while (in[inOrder] != pre[startPre]) {
-            ++inOrder;
-            if (inOrder > endIn) {
-                new IllegalArgumentException("Invalid input!");
-            }
-        }
-        int len = inOrder - startIn;
-        if (len > 0) {
-            // 递归构建左子树
-            node.left = constructBinaryTree(pre, startPre + 1, startPre + len, in, startIn, inOrder - 1);
-        }
-
-        if (inOrder < endIn) {
-            // 递归构建右子树
-            node.right = constructBinaryTree(pre, startPre + len + 1, endPre, in, inOrder + 1, endIn);
-        }
-        return node;
-
+        root.left = cnt > 0 ? build(preorder, inorder, s1 + 1, s1 + cnt, s2, i - 1) : null;
+        root.right = i < e2 ? build(preorder, inorder, s1 + cnt + 1, e1, i + 1, e2) : null;
+        return root;
     }
 }
 ```
-
 
 ### 测试用例
 1. 普通二叉树（完全二叉树；不完全二叉树）；
 2. 特殊二叉树（所有结点都没有左/右子结点；只有一个结点的二叉树）；
 3. 特殊输入测试（二叉树根结点为空；输入的前序序列和中序序列不匹配）。
+
+### 题目导航
+1. [返回上一题](/solution/剑指Offer/06_PrintListInReversedOrder/README.md)
+2. [进入下一题](/solution/剑指Offer/08_NextNodeInBinaryTrees/README.md)
+3. [回到题目列表](../README.md)
