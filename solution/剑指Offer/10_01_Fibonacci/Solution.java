@@ -1,12 +1,13 @@
-
 /**
  * @author bingo
- * @since 2018/10/29
+ * @since 2018/12/16
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 求斐波那契数列的第n项，n从0开始
+     *
      * @param n 第n项
      * @return 第n项的值
      */
@@ -14,13 +15,12 @@ public class Solution {
         if (n < 2) {
             return n;
         }
-        int[] res = new int[n + 1];
-        res[0] = 0;
-        res[1] = 1;
-        for (int i = 2; i <= n; ++i) {
-            res[i] = res[i - 1] + res[i - 2];
-        }
-        return res[n];
 
+        int a = 1, b = 1;
+        for (int i = 2; i < n; ++i) {
+            b = a + b;
+            a = b - a;
+        }
+        return b;
     }
 }
