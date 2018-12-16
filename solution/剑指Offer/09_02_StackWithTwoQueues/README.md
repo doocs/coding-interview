@@ -1,55 +1,94 @@
-## 用两个队列实现栈
+## [用两个队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/)
 
 ### 题目描述
-用两个队列来实现一个栈，完成栈的 `Push` 和 `Pop` 操作。 栈中的元素为 `int` 类型。
+使用队列实现栈的下列操作：
+
+- push(x) -- 元素 x 入栈
+- pop() -- 移除栈顶元素
+- top() -- 获取栈顶元素
+- empty() -- 返回栈是否为空
+
+**注意:**
+
+- 你只能使用队列的基本操作-- 也就是 `push to back`, `peek/pop from front`, `size`, 和 `is empty` 这些操作是合法的。
+- 你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。
+- 你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。
 
 
 ### 解法
-`Push` 操作，每次都存入 `queue1`；
-`Pop` 操作，每次从 `queue1` 取：
-- 将 `queue1` 中的元素依次倒入 `queue2`，直到 `queue1` 剩下一个元素，这个元素就是要 `pop` 出去的；
-- 将 `queue1` 与 `queue2` 进行交换，这样保证每次都从 `queue1` 中存取元素，`queue2` 只起到辅助暂存的作用。
+- 出栈时，先将队列的元素依次移入另一个队列中，直到队列剩下一个元素。将该元素出队即可。
+- 进栈时，将元素压入不为空的那一个队列即可。如果两队列都为空，随便压入其中一个队列。
 
 ```java
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * @author bingo
- * @since 2018/10/29
+ * @since 2018/12/16
  */
 
-public class Solution {
+class MyStack {
 
-    private Queue<Integer> queue1 = new LinkedList<>();
-    private Queue<Integer> queue2 = new LinkedList<>();
+    private Queue<Integer> q1;
+    private Queue<Integer> q2;
 
-    public void push(int node) {
-        queue1.offer(node);
+    /** Initialize your data structure here. */
+    public MyStack() {
+        q1 = new LinkedList<>();
+        q2 = new LinkedList<>();
     }
 
+    /** Push element x onto stack. */
+    public void push(int x) {
+        if (empty() || q2.isEmpty()) {
+            q1.offer(x);
+        } else {
+            q2.offer(x);
+        }
+    }
+
+    /** Removes the element on top of the stack and returns that element. */
     public int pop() {
-        if (queue1.isEmpty()) {
-            throw new RuntimeException("Empty stack!");
+        if (q1.isEmpty()) {
+            while (q2.size() > 1) {
+                q1.offer(q2.poll());
+            }
+            return q2.poll();
         }
 
-        while (queue1.size() > 1) {
-            queue2.offer(queue1.poll());
+        while (q1.size() > 1) {
+            q2.offer(q1.poll());
         }
+        return q1.poll();
+    }
 
-        int val = queue1.poll();
+    /** Get the top element. */
+    public int top() {
+        int val = pop();
+        push(val);
+        return  val;
+    }
 
-        Queue<Integer> t = queue1;
-        queue1 = queue2;
-        queue2 = t;
-        return val;
-
+    /** Returns whether the stack is empty. */
+    public boolean empty() {
+        return q1.isEmpty() && q2.isEmpty();
     }
 }
-```
 
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack obj = new MyStack();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.top();
+ * boolean param_4 = obj.empty();
+ */
+```
 
 ### 测试用例
 1. 往空的栈里添加、删除元素；
 2. 往非空的栈添加、删除元素；
 3. 连续删除元素直至栈为空。
+
+### 题目导航
+1. [返回上一题](/solution/剑指Offer/09_01_QueueWithTwoStacks/README.md)
+2. [进入下一题](/solution/剑指Offer/10_01_Fibonacci/README.md)
+3. [回到题目列表](../README.md)

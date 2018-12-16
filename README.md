@@ -10,6 +10,12 @@
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
 </p>
 
+## Introduction
+本仓库用于记录各大互联网公司 IT 技术面试高频题，包括《剑指 Offer》、《编程之美》等，我会一直抽空更新。
+
+如果大家觉得哪些地方写错了，或者有疑惑，欢迎提 `Issues` 反馈给我；我用的语言是 `Java`，但也欢迎大家提交题目不同语言版本的 Solution，提交之前需要确保提交的内容格式与整个项目保持统一，嘿嘿，我对文档的规范是很苛刻的噢~
+
+另外，我花了大量时间整理的内容，大家如果有转载的需求，也请注明一下[出处](https://github.com/doocs/coding-interview)。
 
 ## Q & A
 ### [剑指 Offer 题集](/solution/剑指Offer/README.md)
