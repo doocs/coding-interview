@@ -1,12 +1,13 @@
 /**
  * @author bingo
- * @since 2018/11/23
+ * @since 2018/12/16
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 青蛙跳台阶II
-     * 
+     *
      * @param target 跳上的那一级台阶
      * @return 多少种跳法
      */
