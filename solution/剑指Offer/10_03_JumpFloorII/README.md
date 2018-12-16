@@ -4,6 +4,7 @@
 一只青蛙一次可以跳上`1`级台阶，也可以跳上`2`级……它也可以跳上`n`级。求该青蛙跳上一个`n`级的台阶总共有多少种跳法。
 
 ### 解法
+#### 解法一：数学式子推导
 跳上 `n-1` 级台阶，可以从 `n-2` 级跳 `1` 级上去，也可以从 `n-3` 级跳 `2` 级上去...也可以从 `0` 级跳上去。那么
 ```
 f(n-1) = f(0) + f(1) + ... + f(n-2) ①
@@ -23,7 +24,6 @@ f(n) = 2f(n-1)
 f(n) = 2^(n-1)
 ```
 
-
 ```java
 /**
  * @author bingo
@@ -40,6 +40,39 @@ class Solution {
      */
     public int JumpFloorII(int target) {
         return (int) Math.pow(2, target - 1);
+    }
+}
+```
+
+#### 解法二
+每当计算 res[i]，把前面所有结果累加起来。
+
+```java
+/**
+ * @author bingo
+ * @since 2018/12/16
+ */
+
+class Solution {
+
+    /**
+     * 青蛙跳台阶II
+     *
+     * @param target 跳上的那一级台阶
+     * @return 多少种跳法
+     */
+    public int JumpFloorII(int target) {
+        if (target < 3) {
+            return target;
+        }
+        int[] res = new int[target + 1];
+        Arrays.fill(res, 1);
+        for (int i = 2; i <= target; ++i) {
+            for (int j = 1; j < i; ++j) {
+                res[i] += res[j];
+            }
+        }
+        return res[target];
     }
 }
 ```
