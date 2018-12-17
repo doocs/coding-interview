@@ -1,55 +1,46 @@
-
 /**
  * @author bingo
- * @since 2018/10/30
+ * @since 2018/12/17
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 获取旋转数组的最小元素
-     * @param array 旋转数组
+     *
+     * @param nums 旋转数组
      * @return 数组中的最小值
      */
-    public int minNumberInRotateArray(int[] array) {
-        if (array == null || array.length == 0) {
-            return 0;
+    public int findMin(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
         }
+        int start = 0, end = nums.length - 1;
 
-        int p = 0;
-        // mid初始为p，为了兼容当数组是递增数组(即不满足 array[p] >= array[q])时，返回 array[p]
-        int mid = p;
-        int q = array.length - 1;
-        while (array[p] >= array[q]) {
-            if (q - p == 1) {
-                // 当p,q相邻时(距离为1)，那么q指向的元素就是最小值
-                mid = q;
-                break;
+        if (nums[start] < nums[end]) {
+            // 说明这是一个单调递增数组
+            return nums[start];
+        }
+        while (end - start > 1) {
+            int mid = start + ((end - start) >> 1);
+            if (nums[start] == nums[end] && nums[mid] == nums[start]) {
+                // 三个数都相等，只能在[start, end)区间遍历，找出最小值
+                return findMin(nums, start, end);
             }
-            mid = p + ((q - p) >> 1);
-
-            // 当p,q,mid指向的值相等时，此时只能通过遍历查找最小值
-            if (array[p] == array[q] && array[mid] == array[p]) {
-                mid = getMinIndex(array, p, q);
-                break;
-            }
-
-            if (array[mid] >= array[p]) {
-                p = mid;
-            } else if (array[mid] <= array[q]) {
-                q = mid;
+            if (nums[mid] >= nums[start]) {
+                start = mid;
+            } else {
+                end = mid;
             }
         }
-
-        return array[mid];
-
-
+        return nums[end];
     }
 
-    private int getMinIndex(int[] array, int p, int q) {
-        int minIndex = p;
-        for (int i = p + 1; i <= q; ++i) {
-            minIndex = array[i] < array[minIndex] ? i : minIndex;
+    private int findMin(int[] nums, int start, int end) {
+        int min = Integer.MAX_VALUE;
+        for (int i = start; i < end; ++i) {
+            min = Math.min(min, nums[i]);
         }
-        return minIndex;
+        return min;
     }
 }
