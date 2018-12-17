@@ -1,23 +1,30 @@
 /**
  * @author bingo
- * @since 2018/11/20
+ * @since 2018/12/17
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 计算数值的整数次方
-     * 
-     * @param base     底数
+     *
+     * @param base 底数
      * @param exponent 指数
      * @return 数值的整数次方
      */
     public double Power(double base, int exponent) {
-        double result = 1.0;
-        int n = Math.abs(exponent);
-        for (int i = 0; i < n; ++i) {
-            result *= base;
+        if (exponent == 0) {
+            return 1;
+        }
+        if (exponent == 1) {
+            return base;
         }
 
-        return exponent < 0 ? 1.0 / result : result;
+        double res = Power(base, Math.abs(exponent) >> 1);
+        res *= res;
+        if ((exponent & 1) == 1) {
+            res *= base;
+        }
+        return exponent > 0 ? res : 1 / res;
     }
 }
