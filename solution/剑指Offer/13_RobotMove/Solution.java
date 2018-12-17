@@ -1,47 +1,45 @@
 /**
  * @author bingo
- * @since 2018/11/20
+ * @since 2018/12/17
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 计算能到达的格子数
-     * 
+     *
      * @param threshold 限定的数字
      * @param rows      行数
      * @param cols      列数
-     * @return 格子数
+     * @return 能到达的格子数
      */
     public int movingCount(int threshold, int rows, int cols) {
-        if (threshold < 0 || rows < 1 || cols < 1) {
-            return 0;
-        }
-        boolean[] visited = new boolean[rows * cols];
-        return getCount(threshold, 0, 0, rows, cols, visited);
+        boolean[][] visited = new boolean[rows][cols];
+        return getCount(threshold, rows, cols, 0, 0, visited);
     }
 
-    private int getCount(int threshold, int i, int j, int rows, int cols, boolean[] visited) {
-        if (check(threshold, i, j, rows, cols, visited)) {
-            visited[i * cols + j] = true;
-            return 1 + getCount(threshold, i - 1, j, rows, cols, visited)
-                    + getCount(threshold, i + 1, j, rows, cols, visited)
-                    + getCount(threshold, i, j - 1, rows, cols, visited)
-                    + getCount(threshold, i, j + 1, rows, cols, visited);
+    private int getCount(int threshold, int rows, int cols, int i, int j, boolean[][] visited) {
+        if (check(threshold, rows, cols, i, j, visited)) {
+            visited[i][j] = true;
+            return 1 + getCount(threshold, rows, cols, i + 1, j, visited)
+                    + getCount(threshold, rows, cols, i - 1, j, visited)
+                    + getCount(threshold, rows, cols, i, j + 1, visited)
+                    + getCount(threshold, rows, cols, i, j - 1, visited);
         }
         return 0;
     }
 
-    private boolean check(int threshold, int i, int j, int rows, int cols, boolean[] visited) {
-        return i >= 0 && i < rows && j >= 0 && j < cols && !visited[i * cols + j]
-                && getDigitSum(i) + getDigitSum(j) <= threshold;
+    private boolean check(int threshold, int rows, int cols, int i, int j, boolean[][] visited) {
+        return i >= 0 && i < rows && j >= 0 && j < cols && !visited[i][j]
+                && (getDigitSum(i) + getDigitSum(j) <= threshold);
     }
 
-    private int getDigitSum(int i) {
-        int res = 0;
-        while (i > 0) {
-            res += i % 10;
-            i /= 10;
+    private int getDigitSum(int val) {
+        int sum = 0;
+        while (val > 0) {
+            sum += (val % 10);
+            val /= 10;
         }
-        return res;
+        return sum;
     }
 }
