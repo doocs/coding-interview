@@ -7,7 +7,7 @@ class Solution {
 
     /**
      * 打印从1到最大的n位数
-     * 
+     *
      * @param n n位数
      */
     public void print1ToMaxOfNDigits(int n) {
@@ -15,16 +15,25 @@ class Solution {
             return;
         }
         char[] chars = new char[n];
-        Arrays.fill(chars, '0');
-        while (increment(chars)) {
+        print1ToMaxOfNDigits(chars, n, 0);
+    }
+
+    private void print1ToMaxOfNDigits(char[] chars, int n, int i) {
+        if (i == n) {
             printNumber(chars);
+            return;
+        }
+
+        // 每一位分别设置从0到9
+        for (int j = 0; j < 10; ++j) {
+            chars[i] = (char) (j + '0');
+            print1ToMaxOfNDigits(chars, n, i + 1);
         }
     }
 
-
     /**
      * 打印字符数组表示的数字（需要省略前n个0）
-     * 
+     *
      * @param chars 字符数组
      */
     private void printNumber(char[] chars) {
@@ -39,23 +48,5 @@ class Solution {
             sb.append(chars[i]);
         }
         System.out.println(sb.toString());
-    }
-
-    private boolean increment(char[] chars) {
-        int n = chars.length;
-        int carry = 1;
-        for (int i = n - 1; i >= 0; --i) {
-            int sum = chars[i] - '0' + carry;
-            if (sum > 9) {
-                if (i == 0) {
-                    return false;
-                }
-                chars[i] = '0';
-            } else {
-                ++chars[i];
-                break;
-            }
-        }
-        return true;
     }
 }
