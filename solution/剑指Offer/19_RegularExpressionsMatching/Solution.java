@@ -1,20 +1,23 @@
 /**
  * @author bingo
- * @since 2018/11/21
+ * @since 2018/12/18
  */
 
-public class Solution {
+class Solution {
+
     /**
      * 判断字符串是否与模式串匹配
-     * 
-     * @param str     字符串
-     * @param pattern 模式串
+     *
+     * @param s 字符串
+     * @param p 模式串
      * @return 是否匹配
      */
-    public boolean match(char[] str, char[] pattern) {
-        if (str == null || pattern == null) {
+    public boolean isMatch(String s, String p) {
+        if (s == null || p == null) {
             return false;
         }
+        char[] str = s.toCharArray();
+        char[] pattern = p.toCharArray();
         return match(str, 0, str.length, pattern, 0, pattern.length);
     }
 
@@ -23,21 +26,21 @@ public class Solution {
             return true;
         }
 
-        // "",".*"
-        if (i != len1 && j == len2) {
+        // pattern已经走到最后，而str还有未匹配的
+        // str走到最后，而pattern还没走完，此时是允许的
+        if (j == len2) {
             return false;
         }
 
         if (j + 1 < len2 && pattern[j + 1] == '*') {
             if (i < len1 && (str[i] == pattern[j] || pattern[j] == '.')) {
-                return match(str, i, len1, pattern, j + 2, len2) || match(str, i + 1, len1, pattern, j, len2)
+                return match(str, i, len1, pattern, j + 2, len2)
+                        || match(str, i + 1, len1, pattern, j, len2)
                         || match(str, i + 1, len1, pattern, j + 2, len2);
             }
-
-            // "",".*"
             return match(str, i, len1, pattern, j + 2, len2);
-
         }
+
         if (i < len1 && (str[i] == pattern[j] || pattern[j] == '.')) {
             return match(str, i + 1, len1, pattern, j + 1, len2);
         }
