@@ -1,4 +1,5 @@
 ## 打印从 1 到最大的 n 位数
+这一题各个 OJ 平台上都没有。
 
 ### 题目描述
 输入数字 `n`，按顺序打印出从 `1` 最大的 `n` 位十进制数。比如输入 `3`，则打印出 `1、2、3` 一直到最大的 3 位数即 999。
@@ -13,66 +14,55 @@
 ```java
 /**
  * @author bingo
- * @since 2018/11/20
+ * @since 2018/12/18
  */
 
-public class Solution {
+class Solution {
 
     /**
      * 打印从1到最大的n位数
-     * @param n n位
+     * 
+     * @param n n位数
      */
     public void print1ToMaxOfNDigits(int n) {
         if (n < 1) {
             return;
         }
-
         char[] chars = new char[n];
-        for (int i = 0; i < n; ++i) {
-            chars[i] = '0';
-        }
-
-        while (!increment(chars)) {
+        Arrays.fill(chars, '0');
+        while (increment(chars)) {
             printNumber(chars);
         }
     }
 
+
     /**
-     * 打印数字（去除前面的0）
-     * @param chars 数字数组
+     * 打印字符数组表示的数字（需要省略前n个0）
+     * 
+     * @param chars 字符数组
      */
     private void printNumber(char[] chars) {
-        int index = 0;
-        int n = chars.length;
-        for (char ch : chars) {
-            if (ch != '0') {
+        int i = 0, n = chars.length;
+        for (; i < n; ++i) {
+            if (chars[i] != '0') {
                 break;
             }
-            ++index;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = index; i < n; ++i) {
+        for (; i < n; ++i) {
             sb.append(chars[i]);
         }
         System.out.println(sb.toString());
     }
 
-    /**
-     * 数字加1
-     * @param chars 数字数组
-     * @return 是否溢出
-     */
     private boolean increment(char[] chars) {
-        boolean flag = false;
         int n = chars.length;
         int carry = 1;
         for (int i = n - 1; i >= 0; --i) {
-
-            int num = chars[i] - '0' + carry;
-            if (num > 9) {
+            int sum = chars[i] - '0' + carry;
+            if (sum > 9) {
                 if (i == 0) {
-                    flag = true;
-                    break;
+                    return false;
                 }
                 chars[i] = '0';
             } else {
@@ -80,7 +70,7 @@ public class Solution {
                 break;
             }
         }
-        return flag;
+        return true;
     }
 }
 ```
@@ -88,3 +78,8 @@ public class Solution {
 ### 测试用例
 1. 功能测试（输入 1、2、3......）；
 2. 特殊输入测试（输入 -1、0）。
+
+### 题目导航
+1. [返回上一题](/solution/剑指Offer/16_Power/README.md)
+2. [进入下一题](/solution/剑指Offer/18_01_DeleteNodeInList/README.md)
+3. [回到题目列表](../README.md)
