@@ -31,8 +31,8 @@ class Solution {
      * @param str 字符串
      * @return 替换后的字符串
      */
-    public String replaceSpaces(String str) {
-        return str == null ? null : str.replaceAll(" ", "%20");
+    public String replaceSpaces(StringBuffer str) {
+        return str == null ? null : str.toString().replaceAll(" ", "%20");
     }
 }
 ```
@@ -42,7 +42,7 @@ class Solution {
 
 用指针 `i` 指向原字符串末尾，`j` 指向现字符串末尾，`i`, `j` 从后往前遍历，当 `i` 遇到空格，`j` 位置依次要赋值为 `'0','2','%'`，若不是空格，直接赋值为 `i` 指向的字符。
 
-🤔 **思路扩展：**
+**思路扩展：**
 
 在合并两个数组（包括字符串）时，如果从前往后复制每个数字（或字符）需要重复移动数字（或字符）多次，那么我们可以考虑**从后往前**复制，这样就能减少移动的次数，从而提高效率。
 
@@ -60,30 +60,30 @@ class Solution {
      * @param str 字符串
      * @return 替换后的字符串
      */
-    public String replaceSpaces(String str) {
+    public String replaceSpaces(StringBuffer str) {
         if (str == null) {
             return null;
         }
-        StringBuilder sb = new StringBuilder(str);
+        
         int len = str.length();
         for (int i = 0; i < len; ++i) {
             if (str.charAt(i) == ' ') {
-                sb.append("  ");
+                str.append("  ");
             }
         }
 
-        int i = len - 1, j = sb.length() - 1;
+        int i = len - 1, j = str.length() - 1;
         for (; i >= 0; --i) {
             char ch = str.charAt(i);
             if (ch == ' ') {
-                sb.setCharAt(j--, '0');
-                sb.setCharAt(j--, '2');
-                sb.setCharAt(j--, '%');
+                str.setCharAt(j--, '0');
+                str.setCharAt(j--, '2');
+                str.setCharAt(j--, '%');
             } else {
-                sb.setCharAt(j--, ch);
+                str.setCharAt(j--, ch);
             }
         }
-        return sb.toString();
+        return str.toString();
     }
 }
 ```
