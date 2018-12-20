@@ -8,4 +8,4 @@
 * 面试必刷
 
 [GitHub](https://github.com/doocs/coding-interview/)
-[Get Started](README.md)
+[Get Started](#coding-interviews)
