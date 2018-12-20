@@ -1,10 +1,6 @@
 # Coding Interviews
 
 <p align="center">
-  <a href="https://github.com/doocs/coding-interview"><img src="/img/github-doocs-yanglbme-collabocats.png" alt="Coding-Interviews"></a>
-</p>
-
-<p align="center">
   <a href="https://github.com/doocs/coding-interview/stargazers"><img src="https://img.shields.io/github/stars/doocs/coding-interview.svg" alt="stars"></a>
   <a href="https://github.com/doocs/coding-interview/network/members"><img src="https://img.shields.io/github/forks/doocs/coding-interview.svg" alt="forks"></a>
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
