@@ -22,10 +22,7 @@
 - [AcWing](https://www.acwing.com/problem/)：墙裂推荐，支持 Java11。团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
-
 ### [编程之美题集](/solution/the-beauty-of-programming.md)
-
-
 
 ## Reading List
 - [x] 《剑指 Offer》 355/355 111

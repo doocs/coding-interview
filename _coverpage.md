@@ -1,6 +1,6 @@
 ![logo](img/icon.png)
 
-# coding-interview
+# Coding-Interview
 
 > 代码面试题集，包括剑指 Offer、编程之美等。
 

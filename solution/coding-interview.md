@@ -34,11 +34,6 @@
 此算法时间复杂度为 `O(n)`，因为每个元素最多只要两次交换，就能确定位置（比如把 2 跟 5 交换，此时 2 在正确的位置，而 5 需要再交换一次就能跑到正确的位置）。空间复杂度为 `O(1)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
     
     /**
@@ -78,11 +73,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 长度为 n 的数组中包含一个或多个重复的数字；
-2. 数组中不包含重复的数字；
-3. 无效测试输入用例（输入空指针；长度为 n 的数组中包含 0~n-1 之外的数字）。
-
 ## 3.2 不修改数组找出重复的数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 
@@ -112,11 +102,6 @@ class Solution {
 注意，此方法无法找出所有重复的元素。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
 
     /**
@@ -169,11 +154,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 长度为 n 的数组中包含一个或多个重复的数字；
-2. 数组中不包含重复的数字；
-3. 无效测试输入用例（输入空指针）。
-
 ## 4 二维数组中的查找
 来源：[AcWing](https://www.acwing.com/problem/content/16/)
 ### 题目描述
@@ -208,11 +188,6 @@ class Solution {
 注意，不能选择左上方或者右下方的数字，因为这样无法缩小查找的范围。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/15
- */
-
 class Solution {
 
     /**
@@ -243,11 +218,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 二维数组中包含查找的数字（查找的数字是数组中的最大值和最小值；查找的数字介于数组中的最大值和最小值之间）；
-2. 二维数组中没有查找的数字（查找的数字大于/小于数组中的最大值；查找的数字在数组的最大值和最小值之间但数组中没有这个数字）；
-3. 特殊输入测试（输入空指针）。
-
 ## 5 替换空格
 来源：[AcWing](https://www.acwing.com/problem/content/17/)
 ### 题目描述
@@ -268,11 +238,6 @@ class Solution {
 利用正则匹配替换。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/15
- */
-
 class Solution {
 
     /**
@@ -297,11 +262,6 @@ class Solution {
 在合并两个数组（包括字符串）时，如果从前往后复制每个数字（或字符）需要重复移动数字（或字符）多次，那么我们可以考虑**从后往前**复制，这样就能减少移动的次数，从而提高效率。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/15
- */
-
 class Solution {
 
     /**
@@ -338,12 +298,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 输入的字符串包含空格（空格位于字符串的最前面/最后面/中间；字符串有多个连续的空格）；
-2. 输入的字符串中没有空格；
-3. 特殊输入测试（字符串是一个空指针；字符串是一个空字符串；字符串只有一个空格字符；字符串中有多个连续空格）。
-
-
 ## 6 从尾到头打印链表
 来源：[AcWing](https://www.acwing.com/problem/content/18/)
 
@@ -362,11 +316,6 @@ class Solution {
 遍历链表，每个链表结点值 `push` 进栈，最后将栈中元素依次 `pop` 到数组中。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/15
- */
-
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -406,10 +355,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的链表有多个结点；输入的链表只有一个结点）；
-2. 特殊输入测试（输入的链表结点指针为空）。
-
 ## 7 重建二叉树
 来源：[AcWing](https://www.acwing.com/problem/content/23/)
 ### 题目描述
@@ -438,11 +383,6 @@ class Solution {
 注意添加特殊情况的 `if` 判断。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/15
- */
-
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -491,12 +431,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 普通二叉树（完全二叉树；不完全二叉树）；
-2. 特殊二叉树（所有结点都没有左/右子结点；只有一个结点的二叉树）；
-3. 特殊输入测试（二叉树根结点为空；输入的前序序列和中序序列不匹配）。
-
-
 ## 8 二叉树的下一个节点
 来源：[AcWing](https://www.acwing.com/problem/content/31/)
 ### 题目描述
@@ -527,11 +461,6 @@ class Solution {
     - 如果它是父结点的右孩子，一直向上寻找，直到找到某个结点，它是它父结点的左孩子，那么该父结点就是 `p` 的下一个结点。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -576,11 +505,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 普通二叉树（完全二叉树；不完全二叉树）；
-2. 特殊二叉树（所有结点都没有左/右子结点；只有一个结点的二叉树；二叉树的根结点为空）；
-3. 不同位置的结点的下一个结点（下一个结点为当前结点的右子结点、右子树的最左子结点、父结点、跨层的父结点等；当前结点没有下一个结点）。
-
 ## 9.1 用两个栈实现队列
 来源：[AcWing](https://www.acwing.com/problem/content/36/)
 ### 题目描述
@@ -615,11 +539,6 @@ queue.empty(); // returns false
 - `s2` 栈为空时，需要一次将 `s1` 元素全部倒入。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class MyQueue {
 
     private Stack<Integer> s1;
@@ -669,11 +588,6 @@ class MyQueue {
  */
 ```
 
-### 测试用例
-1. 往空的队列里添加、删除元素；
-2. 往非空的队列添加、删除元素；
-3. 连续删除元素直至队列为空。
-
 ## 9.2 用两个队列实现栈
 来源：[LeetCode](https://leetcode-cn.com/problems/implement-stack-using-queues/)
 ### 题目描述
@@ -696,11 +610,6 @@ class MyQueue {
 - 进栈时，将元素压入不为空的那一个队列即可。如果两队列都为空，随便压入其中一个队列。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class MyStack {
 
     private Queue<Integer> q1;
@@ -759,11 +668,6 @@ class MyStack {
  */
 ```
 
-### 测试用例
-1. 往空的栈里添加、删除元素；
-2. 往非空的栈添加、删除元素；
-3. 连续删除元素直至栈为空。
-
 ## 10.1 斐波那契数列
 来源：[AcWing](https://www.acwing.com/problem/content/19/)
 ### 题目描述
@@ -793,11 +697,6 @@ class MyStack {
 ```
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -819,11 +718,6 @@ class Solution {
 从下往上计算，递推，时间复杂度 `O(n)`。可以用数组存储，空间复杂度 `O(n)`；也可以用变量存储，空间复杂度 `O(1)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -847,11 +741,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（如输入 3、5、10 等）；
-2. 边界值测试（如输入 0、1、2）；
-3. 性能测试（输入较大的数字，如 40、50、100 等）。
-
 ## 10.2 跳台阶
 来源：[NowCoder](https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=13&tqId=11161&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 ### 题目描述
@@ -864,11 +753,6 @@ f(n) = f(n-1) + f(n-2)
 ```
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -890,12 +774,6 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 功能测试（如输入 3、5、10 等）；
-2. 边界值测试（如输入 0、1、2）；
-3. 性能测试（输入较大的数字，如 40、50、100 等）。
-
 
 ## 10.3 变态跳台阶
 来源：[NowCoder](https://www.nowcoder.com/practice/22243d016f6b47f2a6928b4313c85387?tpId=13&tqId=11162&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
@@ -928,11 +806,6 @@ f(n) = 2*f(n-1)
 所以 f(n) 是一个等比数列
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -953,11 +826,6 @@ class Solution {
 每当计算 res[i]，把前面所有结果累加起来。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -982,11 +850,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（如输入 3、5、10 等）；
-2. 边界值测试（如输入 0、1、2）；
-3. 性能测试（输入较大的数字，如 40、50、100 等）。
-
 ## 10.4 矩形覆盖
 来源：[NowCoder](https://www.nowcoder.com/practice/72a5a919508a4251859fb2cfb987a0e6?tpId=13&tqId=11163&tPage=1&rp=1&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking)
 ### 题目描述
@@ -1000,11 +863,6 @@ class Solution {
 #### 解法一：利用数组存放结果
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -1031,11 +889,6 @@ class Solution {
 #### 解法二：直接用变量存储结果
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/16
- */
-
 class Solution {
 
     /**
@@ -1057,11 +910,6 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 功能测试（如输入 3、5、10 等）；
-2. 边界值测试（如输入 0、1、2）；
-3. 性能测试（输入较大的数字，如 40、50、100 等）。
 
 ## 11 旋转数组的最小数字
 来源：[AcWing](https://www.acwing.com/problem/content/20/)
@@ -1088,11 +936,6 @@ class Solution {
 直接遍历数组找最小值，时间复杂度 `O(n)`，不推荐。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1176,12 +1019,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的数组是升序排序数组的一个旋转，数组中有重复数字或者没有重复数字）；
-2. 边界值测试（输入的数组是一个升序排序的数组，只包含一个数字的数组）；
-3. 特殊输入测试（输入空指针）。
-
-
 ## 12 矩阵中的路径
 来源：[AcWing](https://www.acwing.com/problem/content/21/)
 ### 题目描述
@@ -1214,11 +1051,6 @@ str="ASAE" , return "false"
 回溯法。首先，任选一个格子作为路径起点。假设格子对应的字符为 ch，并且对应路径上的第 i 个字符。若相等，到相邻格子寻找路径上的第 i+1 个字符。重复这一过程。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1270,12 +1102,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（在多行多列的矩阵中存在或者不存在路径）；
-2. 边界值测试（矩阵只有一行或者一列；矩阵和路径中的所有字母都是相同的）；
-3. 特殊输入测试（输入空指针）。
-
-
 ## 13 机器人的运动范围
 来源：[AcWing](https://www.acwing.com/problem/content/22/)
 ### 题目描述
@@ -1314,11 +1140,6 @@ class Solution {
 从坐标(0, 0) 开始移动，当它准备进入坐标(i, j)，判断是否能进入，如果能，再判断它能否进入 4 个相邻的格子 (i-1, j), (i+1, j), (i, j-1), (i, j+1)。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1361,12 +1182,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（方格为多行多列；k 为正数）；
-2. 边界值测试（方格只有一行或者一列；k = 0）；
-3. 特殊输入测试（k < 0）。
-
-
 ## 14 剪绳子
 来源：[AcWing](https://www.acwing.com/problem/content/24/)
 ### 题目描述
@@ -1396,11 +1211,6 @@ f(n) = max{f(n), f(i) * f(n - i)}, i = 1,2..n-1
 - 长度为 n，在剪第一刀的时候，有 n-1 种可能的选择，剪出来的绳子又可以继续剪，可以看出，原问题可以划分为子问题，子问题又有重复子问题。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1441,11 +1251,6 @@ class Solution {
 - 当 n=4 时，剪成两根长度为 2 的绳子，其实没必要剪，只是题目的要求是至少要剪一刀。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1468,11 +1273,6 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 功能测试（绳子的初始长度大于 5）；
-2. 边界值测试（绳子的初始长度分别为 0、1、2、3、4）。
-
 
 ## 15 二进制中1的个数
 来源：[AcWing](https://www.acwing.com/problem/content/25/)
@@ -1507,11 +1307,6 @@ class Solution {
 不要用 n 去右移并与 1 进行与运算，因为 n 可能为负数，右移时会陷入死循环。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1551,11 +1346,6 @@ n & (n - 1) = 1000
 > 把一个整数减去 1 之后再和原来的整数做位与运算，得到的结果相当于把整数的二进制表示中最右边的 1 变成 0。很多二进制的问题都可以用这种思路解决。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1578,11 +1368,6 @@ class Solution {
 #### 解法三
 利用 Java API。
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1596,11 +1381,6 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 正数（包括边界值 1、0x7FFFFFFF）；
-2. 负数（包括边界值 0x80000000、0xFFFFFFFF）；
-3. 0。
 
 ## 16 数值的整数次方
 来源：[AcWing](https://www.acwing.com/problem/content/26/)
@@ -1634,11 +1414,6 @@ class Solution {
 时间复杂度 `O(N)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1672,11 +1447,6 @@ class Solution {
 递归求解，每次 exponent 缩小一半，时间复杂度为 `O(log N)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/17
- */
-
 class Solution {
 
     /**
@@ -1704,10 +1474,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 把底数和指数分别设为正数、负数和零。
-
-
 ## 17 打印从1到最大的n位数
 来源：无
 ### 题目描述
@@ -1722,11 +1488,6 @@ class Solution {
 - 输出数字（0开头的需要把0去除）。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/18
- */
-
 class Solution {
 
     /**
@@ -1790,11 +1551,6 @@ class Solution {
 利用递归全排列，设置每一位，设置完之后，打印出来。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/18
- */
-
 class Solution {
 
     /**
@@ -1874,11 +1630,6 @@ class Solution {
 
 ```java
 /**
- * @author bingo
- * @since 2018/12/18
- */
-
-/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -1929,11 +1680,6 @@ class Solution {
 
 ```java
 /**
- * @author bingo
- * @since 2018/12/18
- */
-
-/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -1973,11 +1719,6 @@ class Solution {
 pre 始终指向下一个不重复的节点。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/18
- */
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -2021,11 +1762,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（重复的节点位于链表的头部/中间/尾部；链表中没有重复的节点）；
-2. 特殊输入测试（指向链表头节点的为空指针；链表中所有节点都是重复的）。
-
-
 ## 19 正则表达式匹配
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2058,11 +1794,6 @@ p="a*"
     - 若不匹配，返回 false。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/18
- */
-
 class Solution {
 
     /**
@@ -2110,10 +1841,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（模式字符串里包含普通字符、`.`、`*`；模式字符串和输入字符串匹配/不匹配）；
-2. 特殊输入测试（输入字符串和模式字符串是空指针、空字符串）。
-
 ## 20 表示数值的字符串
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2133,11 +1860,6 @@ class Solution {
 ```
 
 ```java
-/**
- * @author bingo
- * @since 2018/11/21
- */
-
 public class Solution {
     /**
      * 判断是否是数字
@@ -2152,11 +1874,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（正数或者负数；包含或者不包含整数部分的数值；包含或者不包含效数部分的值；包含或者不包含指数部分的值；各种不能表达有效数值的字符串）；
-2. 特殊输入测试（输入字符串和模式字符串是空指针、空字符串）。
-
-
 ## 21 调整数组顺序使奇数位于偶数前面
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2168,11 +1885,6 @@ public class Solution {
 
 ```java
 import java.util.Arrays;
-
-/**
- * @author bingo
- * @since 2018/11/21
- */
 
 public class Solution {
     /**
@@ -2222,11 +1934,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入数组中的奇数、偶数交替出现；输入的数组中所有偶数都出现在奇数的前面；输入的数组中所有偶数都出现在奇数的前面；输入的数组中所有奇数都出现在偶数的前面）；
-2. 特殊输入测试（输入空指针；输入的数组只包含一个数字）。
-
-
 ## 22 链表中倒数第k个节点
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2240,11 +1947,6 @@ pre 指针走 `k-1` 步。之后 cur 指针指向 phead，然后两个指针同�
 此题需要考虑一些特殊情况。比如 k 的值小于 0 或者大于链表长度。
 
 ```java
-/**
- * @author bingo
- * @since 2018/11/21
- */
-
 /*
 public class ListNode {
     int val;
@@ -2285,11 +1987,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（第 k 个节点在链表的中间/头部/尾部）；
-2. 特殊输入测试（输入空指针；链表的节点总数小于 k；k=0）。
-
-
 ## 23 链表中环的入口结点
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2301,12 +1998,6 @@ public class Solution {
 - 指针 p1 先走 `cnt` 步，p2 指向链表头部，之后 `p1`,`p2` 同时走，相遇时，相遇点一定是在环的入口处。因为 `p1` 比 `p2` 多走了环的一圈。
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
  public class ListNode {
     int val;
@@ -2370,11 +2061,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（链表中包含/不包含环；链表中有多个或者只有一个节点）；
-2. 特殊输入测试（链表头节点为空指针）。
-
-
 ## 24 反转链表
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2385,12 +2071,6 @@ public class Solution {
 利用头插法解决。
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
 public class ListNode {
     int val;
@@ -2433,12 +2113,6 @@ public class Solution {
 #### 解法二：递归
 
 ```java
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
-
 /*
 public class ListNode {
     int val;
@@ -2466,11 +2140,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（链表中有多个结点/只有一个节点）；
-2. 特殊输入测试（链表头节点为空指针）。
-
-
 ## 25 合并两个排序的链表
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2481,12 +2150,6 @@ public class Solution {
 同时遍历两链表进行 `merge`。
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
 public class ListNode {
     int val;
@@ -2539,12 +2202,6 @@ public class Solution {
 
 #### 解法二：递归
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
 public class ListNode {
     int val;
@@ -2580,11 +2237,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的两个链表有多个节点；节点的值互不相同或者存在值相等的多个节点）；
-2. 特殊输入测试（两个链表的一个或者两个头节点为空指针；两个链表中只有一个节点）。
-
-
 ## 26 树的子结构
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2597,12 +2249,6 @@ public class Solution {
 - 判断树A以R为根结点的子树是否包含与树B一样的结构
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
  public class TreeNode {
  int val = 0;
@@ -2655,10 +2301,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（树A和树B都是普通的二叉树；树B是/不是树A的子结构）；
-2. 特殊输入测试（两棵二叉树的一个或者两个根结点为空指针，二叉树的所有结点都没有左/右子树）。
-
 
 ## 27 二叉树的镜像
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -2685,12 +2327,6 @@ public class Solution {
 将根结点的左右孩子互换，之后递归左右孩子。
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
  public class TreeNode {
  int val = 0;
@@ -2727,11 +2363,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（普通的二叉树；二叉树的所有结点都没有左/右子树；只有一个结点的二叉树）；
-2. 特殊输入测试（二叉树的根结点为空指针）。
-
-
 ## 28 对称的二叉树
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2741,12 +2372,6 @@ public class Solution {
 比较二叉树的前序遍历序列和对称前序遍历序列是否一样，若是，说明是对称的。
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 /*
 public class TreeNode {
     int val = 0;
@@ -2787,10 +2412,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（对称的二叉树；因结构而不对称的二叉树；结构对称但节点的值不对称的二叉树）；
-2. 特殊输入测试（二叉树的根结点为空指针；只有一个节点的二叉树；所有节点的值都相同的二叉树）。
-
 
 ## 29 顺时针打印矩阵
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -2812,11 +2433,6 @@ public class Solution {
 
 ```java
 import java.util.ArrayList;
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
 
 public class Solution {
     /**
@@ -2885,11 +2501,6 @@ public class Solution {
 ```java
 import java.util.Stack;
 
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 
 public class Solution {
 
@@ -2928,10 +2539,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 新压入栈的数字比之前的最小值大/小。
-2. 弹出栈的数字是/不是最小元素。
-
 ## 31 栈的压入、弹出序列
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -2945,12 +2552,6 @@ public class Solution {
 
 ```java
 import java.util.Stack;
-
-/**
- * @author bingo
- * @since 2018/11/22
- */
-
 
 public class Solution {
     /**
@@ -2987,9 +2588,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的两个数组含有多个数字或者只有一个数字：第二个数组是/不是第一个数组表示的压入序列对应的栈的弹出序列）；
-2. 特殊输入测试（输入两个空指针）。
 
 ## 32.1 不分行从上往下打印二叉树
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3006,10 +2604,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * @author bingo
- * @since 2018/11/23
- */
 
 /**
  public class TreeNode {
@@ -3052,9 +2646,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（完全二叉树；所有节点只有左/右子树）；
-2. 特殊输入测试（二叉树根节点为空指针；只有一个节点的二叉树）。
 
 ## 32.2 分行从上往下打印二叉树
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3069,10 +2660,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * @author bingo
- * @since 2018/11/23
- */
 
 /*
 public class TreeNode {
@@ -3126,9 +2713,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（完全二叉树；所有节点只有左/右子树）；
-2. 特殊输入测试（二叉树根节点为空指针；只有一个节点的二叉树）。
 
 ## 32.3 之字形打印二叉树
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3165,10 +2749,6 @@ public class Solution {
 import java.util.ArrayList;
 import java.util.Stack;
 
-/**
- * @author bingo
- * @since 2018/11/23
- */
 
 /*
 public class TreeNode {
@@ -3231,9 +2811,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（完全二叉树；所有节点只有左/右子树）；
-2. 特殊输入测试（二叉树根节点为空指针；只有一个节点的二叉树）。
 
 ## 33 二叉搜索树的后序遍历序列
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3249,11 +2826,6 @@ public class Solution {
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/11/23
- */
-
 public class Solution {
     /**
      * 判断数组是否是某个二叉搜索树的后序遍历序列
@@ -3292,10 +2864,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的后序遍历序列对应一棵二叉树，包括完全二叉树、所有节点都没有左/右子树的二叉树、只有一个节点的二叉树；输入的后续遍历序列没有对应一棵二叉树）；
-2. 特殊输入测试（后序遍历序列为空指针）。
-
 
 ## 34 二叉树中和为某一值的路径
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3307,10 +2875,6 @@ public class Solution {
 ```java
 import java.util.ArrayList;
 
-/**
- * @author bingo
- * @since 2018/11/23
- */
 
 /**
  public class TreeNode {
@@ -3358,9 +2922,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（二叉树中有一条、多条符合要求的路径；二叉树中没有符合要求的路径）；
-2. 特殊输入测试（指向二叉树根节点的指针为空指针）。
 
 ## 35 复杂链表的复刻
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3380,11 +2941,6 @@ public class Solution {
 ![random-list-step3.png](/img/random-list-step3.png)
 
 ```java
-/**
- * @author bingo
- * @since 2018/11/24
- */
-
 /*
 public class RandomListNode {
     int label;
@@ -3435,10 +2991,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（结点中的 random 指针指向结点自身；两个结点的 random 形成环状结构；链表中只有一个结点）；
-2. 特殊输入测试（指向链表头结点的指针为空指针）。
-
 ## 36 二叉搜索树与双向链表
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -3455,11 +3007,6 @@ cur.left = pre
 
 ```java
 import java.util.Stack;
-
-/**
- * @author bingo
- * @since 2018/11/24
- */
 
 /**
  public class TreeNode {
@@ -3512,9 +3059,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的二叉树是完全二叉树；所有结点都没有左/右子树；只有一个结点的二叉树）；
-2. 特殊输入测试（指向二叉树根结点的指针为空指针）。
 
 ## 39 数组中出现次数超过一半的数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3536,10 +3080,6 @@ public class Solution {
 **注意：**这种方法会修改输入的数组。时间复杂度为 `O(n)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/6
- */
 
 public class Solution {
     /**
@@ -3621,11 +3161,6 @@ public class Solution {
 此方法时间复杂度为 `O(n)`，且不会改变数组。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/6
- */
-
 public class Solution {
     /**
      * 查找数组中出现次数超过一次的数字
@@ -3675,10 +3210,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的数组中存在/不存在一个出现次数超过数组长度一半的数字）；
-2. 特殊输入测试（输入的数组只有一个数字；输入空指针）。
-
 ## 40 最小的k个数
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -3700,11 +3231,6 @@ public class Solution {
 
 ```java
 import java.util.ArrayList;
-
-/**
- * @author bingo
- * @since 2018/12/6
- */
 
 public class Solution {
 
@@ -3769,10 +3295,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-/**
- * @author bingo
- * @since 2018/12/6
- */
 
 public class Solution {
 
@@ -3808,10 +3330,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的数组中存在/不存在一个出现次数超过数组长度一半的数字）；
-2. 特殊输入测试（输入的数组只有一个数字；输入空指针）。
-
 
 ## 41 数据流中的中位数
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3825,11 +3343,6 @@ public class Solution {
 ```java
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
-/**
- * @author bingo
- * @since 2018/12/7
- */
 
 public class Solution {
 
@@ -3877,10 +3390,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（从数据流中读出奇数/偶数个数字）；
-2. 边界值测试（从数据流中读出 0/1/2 个数字）。
-
 
 ## 42 连续子数组的最大和
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3899,12 +3408,6 @@ res[i] 表示以第 i 个数字结尾的子数组的最大和，那么求出 `ma
 - `res[i] = res[i - 1] + array[i]`, if `res[i - 1] >= 0`
 
 ```java
-
-/**
- * @author bingo
- * @since 2018/12/7
- */
-
 public class Solution {
     /**
      * 求连续子数组的最大和
@@ -3924,14 +3427,7 @@ public class Solution {
         return max;
     }
 }
-
-
 ```
-
-### 测试用例
-1. 功能测试（输入的数组中有正数也有负数；输入的数组中全是正数；输入的数组中全是负数）；
-2. 特殊输入测试（表示数组的指针位为空指针）。
-
 
 ## 44 数字序列中某一位的数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -3948,11 +3444,6 @@ public class Solution {
 序列的前 10 位是 `0~9`， 这 10 个只有一位的数字。显然第 1001 位在这 10 个数字之后，因此这 10 个数字可以直接跳过。再从后面序列中找第 991（991=1001-10） 位的数字。接下来有 90 个两位数，共 180 位，由于 991>180，所以继续跳过。从 881 找...最后可以找到对应的数字以及数字的某一位。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/7
- */
-
 public class Solution {
     /**
      * 求数字序列中某一位的数字
@@ -4001,10 +3492,6 @@ public class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入 10、190、1000）；
-2. 边界值测试（输入 0、1）。
-
 
 ## 45 把数组排成最小的数
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -4018,11 +3505,6 @@ public class Solution {
 
 ```java
 import java.util.Arrays;
-
-/**
- * @author bingo
- * @since 2018/12/8
- */
 
 class Solution {
 
@@ -4053,11 +3535,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的数组中有多个数字；输入的数组中的数字有重复的数位；输入的数组中只有一个数字）；
-2. 特殊输入测试（表示数组的指针为空指针）。
-
-
 ## 46 把数字翻译成字符串
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4075,13 +3552,7 @@ class Solution {
 - 能，那么 `res[i] = res[i - 1] + res[i - 2]`；
 - 不能，那么 `res[i] = res[i - 1]`。
 
-
 ```java
-/**
- * @author bingo
- * @since 2018/12/8
- */
-
 class Solution {
     /**
      * 获取翻译字符串的方法个数
@@ -4111,10 +3582,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（只有一位数字；包含多位数字）；
-2. 特殊输入测试（负数；0；包含 25、26 的数字）。
-
 ## 47 礼物的最大价值
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4133,11 +3600,6 @@ res[i][j] = Math.max(res[i - 1][j], res[i][j - 1]) + grid[i][j];
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/8
- */
-
 class Solution {
     /**
      * 获取礼物的最大价值
@@ -4169,11 +3631,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（多行多列的矩阵；一行或者一列的矩阵；只有一个数字的矩阵）；
-2. 特殊输入测试（指向矩阵数组的指针为空指针）。
-
-
 ## 48 长不含重复字符的子字符串
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4193,11 +3650,6 @@ class Solution {
 需要用一个数组 t 记录一下当前出现的字符在哪个位置。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/8
- */
-
 class Solution {
     /**
      * 最长不含重复字符的子字符串
@@ -4234,11 +3686,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（包含多个字符的字符串；只有一个字符的字符串；所有字符都唯一的字符串；所有字符都相同的字符串）；
-2. 特殊输入测试（空字符串）。
-
-
 ## 52 两个链表的第一个公共结点
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4263,11 +3710,6 @@ B:     b1 → b2 → b3
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/8
- */
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -4322,11 +3764,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入的两个链表有公共节点；第一个公共节点在链表的中间，第一个公共节点在链表的末尾，第一个公共节点是链表的头节点；输入的两个链表没有公共节点）；
-2. 特殊输入测试（输入的链表头节点是空指针）。
-
-
 ## 53.1 数字在排序数组中出现的次数
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4351,11 +3788,6 @@ class Solution {
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/8
- */
-
 class Solution {
     /**
      * 求数字k在排序数组中出现的次数
@@ -4422,10 +3854,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（数组中包含要查找的数字；数组中没有要查找的数字；要查找的数字在数组中出现一次/多次）；
-2. 边界值测试（查找数组中的最大值、最小值；数组中只有一个数字）；
-3. 特殊输入测试（表示数组的指针为空指针）。
 
 ## 53.2 0到n-1中缺失的数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -4450,11 +3878,6 @@ class Solution {
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/8
- */
-
 class Solution {
     /**
      * 获取0~n-1缺失的数字
@@ -4485,10 +3908,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（缺失的数字位于数组的开始、中间或者末尾）；
-2. 边界值测试（数组中只有一个数字 0）；
-3. 特殊输入测试（表示数组的指针为空指针）。
 
 ## 53.3 数组中数值和下标相等的元素
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -4516,11 +3935,6 @@ class Solution {
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/10
- */
-
 class Solution {
     /**
      * 找出单调递增数组中数值和下标相等的元素
@@ -4549,11 +3963,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（数组中包含或者不包含数值和下标相等的元素）；
-2. 边界值测试（数组中只有一个数字；数值和下标相等的元素位于数组的开头或者结尾）；
-3. 特殊输入测试（表示数组的指针为空指针）。
-
 ## 55.1 二叉树的深度
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4578,11 +3987,6 @@ class Solution {
 
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/10
- */
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -4646,11 +4050,6 @@ class Solution {
 
 ```java
 /**
- * @author bingo
- * @since 2018/12/10
- */
-
-/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -4690,11 +4089,6 @@ class Solution {
 #### 解法二
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/10
- */
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -4737,12 +4131,6 @@ class Solution {
 }
 ```
 
-
-### 测试用例
-1. 功能测试（平衡的二叉树；不是平衡的二叉树；二叉树中所有节点都没有左/右子树）；
-2. 特殊输入测试（二叉树只有一个节点；二叉树的头节点为空指针）。
-
-
 ## 56.1 数组中只出现一次的两个数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4767,11 +4155,6 @@ class Solution {
 我们先异或，求得的结果是两个不相同的数字异或的结果，结果一定不为 0。那么它的二进制表示中一定有 1。我们根据这个 1 在二进制中出现的位置。将数组划分，这样，两个只出现一次的数字就会被隔开，之后求异或即可。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/10
- */
-
 class Solution {
     /**
      * 求数组中只出现一次的两个数字
@@ -4819,11 +4202,6 @@ class Solution {
 }
 ```
 
-
-### 测试用例
-1. 功能测试（数组中有多对重复的数字；数组中没有重复的数字）。
-
-
 ## 56.2 数组中唯一只出现一次的数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4841,11 +4219,6 @@ class Solution {
 分别累加数组中每个元素的二进制中出现的数字，那么出现三次的数字，二进制位上最后累加的结果一定能被 3 整除。不能被 3 整除的位，就属于只出现一次的数字。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/10
- */
-
 class Solution {
     /**
      * 找出数组中只出现一次的数字，其它数字都出现三次
@@ -4877,9 +4250,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（唯一只出现一次的数字分别是 0、正数、负数；重复出现三次的数字分别是 0、正数、负数）。
-
 ## 57.1 和为S的两个数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4902,11 +4272,6 @@ class Solution {
 ```java
 import java.util.HashSet;
 import java.util.Set;
-
-/**
- * @author bingo
- * @since 2018/12/10
- */
 
 class Solution {
     /**
@@ -4933,10 +4298,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（数组中存在和为 s 的两个数；数组中不存在和为 s 的两个数）；
-2. 特殊输入测试（表示数组的指针为空指针）。
-
 ## 57.2 和为S的连续正数序列
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -4959,10 +4320,6 @@ class Solution {
 ```java
 import java.util.*;
 
-/**
- * @author bingo
- * @since 2018/12/12
- */
 
 class Solution {
 
@@ -5007,11 +4364,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（存在和为 s 的连续序列，如 9、100 等；不存在和为 s 的连续序列，如 4、0 等）；
-2. 边界值测试（连续序列的最小和 3）。
-
-
 ## 58.1 翻转单词顺序
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5032,11 +4384,6 @@ class Solution {
 先对字符串按空格切割成数组，再逆序数组后，最后将元素拼接并返回。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/12
- */
-
 class Solution {
     /**
      * 翻转单词
@@ -5064,11 +4411,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（句子中有多个单词；句子中只有一个单词）；
-2. 特殊输入测试（字符串指针为空指针；字符串的内容为空；字符串中只有空格）。
-
-
 ## 58.2 左旋转字符串
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5093,11 +4435,6 @@ class Solution {
 先翻转前 n 个字符，再翻转后面的字符，最后整体翻转。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/12
- */
-
 class Solution {
 
     /**
@@ -5133,11 +4470,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（把长度为 n 的字符串左旋转 0/1/2/n-1/n/n+1 个字符）；
-2. 特殊输入测试（字符串指针为空指针）。
-
-
 ## 59.1 滑动窗口的最大值
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5167,11 +4499,6 @@ class Solution {
 ```java
 import java.util.Deque;
 import java.util.LinkedList;
-
-/**
- * @author bingo
- * @since 2018/12/12
- */
 
 class Solution {
     /**
@@ -5226,12 +4553,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入数组的数字大小无序；输入数组的数字单调递增；输入数组的数字单调递减）；
-2. 边界值测试（滑动窗口的大小为 0、1、等于输入数组的长度、大于输入数组的长度）；
-3. 特殊输入测试（输入数组为空）。
-
-
 ## 61 扑克牌的顺子
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5264,11 +4585,6 @@ class Solution {
 
 ```java
 import java.util.Arrays;
-
-/**
- * @author bingo
- * @since 2018/12/12
- */
 
 class Solution {
 
@@ -5307,10 +4623,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（抽出的牌中有一个或者多个大、小王；抽出的牌中没有大、小王；抽出的牌中有对子）；
-2. 特殊输入测试（输入空指针）。
-
 
 ## 62 圆圈中最后剩下的数字
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -5338,11 +4650,6 @@ class Solution {
 - 这种解法每删除一个数字需要 `m` 步计算，共有 `n` 个数字，因此总的时间复杂度为 `O(mn)`，空间复杂度为 `O(n)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
 
     /**
@@ -5444,11 +4751,6 @@ f(i) = (f(i - 1) + m) % i;
 算法的时间复杂度为 `O(n)`，空间复杂度为 `O(1)`。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
 
     /**
@@ -5471,13 +4773,6 @@ class Solution {
 }
 ```
 
-
-### 测试用例
-1. 功能测试（输入的 m 小于 n，比如从最初有 5 个数字的圆圈中每次删除第 2、3 个数字；输入的 m 大于或者等于 n，比如从最初有 6 个数字的圆圈中每次删除第 6、7 个数字）；
-2. 特殊输入测试（圆圈中有 0 个数字）；
-3. 性能测试（从最初有 4000 个数字的圆圈中每次删除第 997 个数字）。
-
-
 ## 63 股票的最大利润
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5498,11 +4793,6 @@ class Solution {
 遍历到 nums[i] 时，求 nums[i] 与前 i 个数的最小值 `min` 的差值，最后求出最大的差值即可。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
     /**
      * 股票的最大利润
@@ -5525,12 +4815,6 @@ class Solution {
 }
 ```
 
-
-### 测试用例
-1. 功能测试（存储股票价格的数组无序、单调递增、单调递减）；
-2. 边界值测试（存储股票价格的数组中只有两个数字）；
-3. 特殊输入测试（指向数组的指针为空指针）。
-
 ## 64 求1+2+…+n
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5549,11 +4833,6 @@ class Solution {
 ```java
 import java.util.stream.IntStream;
 
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
 
     /**
@@ -5567,10 +4846,6 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 功能测试（输入 5、10）；
-2. 边界值测试（输入 0 和 1）。
 
 ## 65 不用加减乘除做加法
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
@@ -5588,11 +4863,6 @@ class Solution {
 先对两数进行异或，求得相加不仅位的结果。再循环对两数进行按位与运算，并左移一位，直至进位为 0。
 
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
 
     /**
@@ -5618,10 +4888,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 输入正数、负数、0。
-
-
 ## 66 构建乘积数组
 来源：[AcWing](https://www.acwing.com/problem/content/15/)
 ### 题目描述
@@ -5645,13 +4911,7 @@ class Solution {
 
 - 对于左半部分：B[i] = B[i - 1] * A[i - 1]
 
-
 ```java
-/**
- * @author bingo
- * @since 2018/12/13
- */
-
 class Solution {
     
     /**
@@ -5682,7 +4942,3 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 功能测试（输入数组包含正数、负数、一个 0、多个 0）；
-2. 边界值测试（输入数组长度为 0）。
