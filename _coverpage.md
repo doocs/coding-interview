@@ -1,4 +1,4 @@
-![logo](img/icon.png)
+![logo](images/icon.png)
 
 # Coding-Interview
 
@@ -7,4 +7,4 @@
 * 记录各大互联网公司 IT 技术面试高频题
 
 [GitHub](https://github.com/doocs/coding-interview/)
-[Get Started](#Coding-Interview)
+[Get Started](#互联网公司-it-技术面试题集)

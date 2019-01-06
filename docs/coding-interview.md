@@ -1442,7 +1442,7 @@ class Solution {
 ```
 
 #### 解法二
-![odd-even](/img/odd-even.png)
+![odd-even](/images/odd-even.png)
 
 递归求解，每次 exponent 缩小一半，时间复杂度为 `O(log N)`。
 
@@ -1601,10 +1601,6 @@ class Solution {
 }
 ```
 
-### 测试用例
-1. 功能测试（输入 1、2、3......）；
-2. 特殊输入测试（输入 -1、0）。
-
 ## 18.1 在O(1)时间删除链表节点
 来源：[AcWing](https://www.acwing.com/problem/content/85/)
 ### 题目描述
@@ -1650,11 +1646,6 @@ class Solution {
     }
 }
 ```
-
-### 测试用例
-1. 功能测试（从有多个节点的链表的中间/头部/尾部删除一个节点；从只有一个节点的链表中删除唯一的节点）；
-2. 特殊输入测试（指向链表头节点的为空指针；指向要删除节点的为空指针）。
-
 
 ## 18.2 删除链表中重复的节点
 来源：[AcWing](https://www.acwing.com/problem/content/27/)
@@ -1763,7 +1754,7 @@ class Solution {
 ```
 
 ## 19 正则表达式匹配
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/28/)
 ### 题目描述
 请实现一个函数用来匹配包括 `'.'` 和 `'*'` 的正则表达式。
 
@@ -1787,7 +1778,7 @@ p="a*"
 判断模式中第二个字符是否是 `*`：
 
 - 若是，看如果模式串第一个字符与字符串第一个字符是否匹配：
-    - 若不匹配，在模式串上向右移动两个字符`j+2`，相当于 a* 被忽略
+    - 若不匹配，在模式串上向右移动两个字符`j+2`，相当于 a* 被忽略。
     - 若匹配，字符串后移`i+1`。此时模式串可以移动两个字符`j+2`，也可以不移动`j`。
 - 若不是，看当前字符与模式串的当前字符是否匹配，即 `str[i] == pattern[j] || pattern[j] == '.'`：
     - 若匹配，则字符串与模式串都向右移动一位，`i+1`，`j+1`。
@@ -1842,9 +1833,28 @@ class Solution {
 ```
 
 ## 20 表示数值的字符串
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/29/)
 ### 题目描述
-请实现一个函数用来匹配包括`.`和`*`的正则表达式。模式中的字符`.`表示任意一个字符，而`*`表示它前面的字符可以出现任意次（包含`0`次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串`aaa`与模式`a.a`和`ab*ac*a`匹配，但是与`aa.a`和`ab*a`均不匹配。
+请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。
+
+例如，字符串`"+100"`,`"5e2"`,`"-123"`,`"3.1416"`和`"-1E-16"`都表示数值。
+
+但是`"12e"`,`"1a3.14"`,`"1.2.3"`,`"+-5"`和`"12e+4.3"`都不是。
+
+**注意**:
+
+- 小数可以没有整数部分，例如.123等于0.123；
+- 小数点后面可以没有数字，例如233.等于233.0；
+- 小数点前面和后面可以有数字，例如233.666;
+- 当e或E前面没有数字时，整个字符串不能表示数字，例如.e1、e1；
+- 当e或E后面没有整数时，整个字符串不能表示数字，例如12e、12e+5.4;
+
+**样例**：
+```
+输入: "0"
+
+输出: true
+```
 
 ### 解法
 利用正则表达式匹配即可。
@@ -2928,17 +2938,17 @@ public class Solution {
 ### 题目描述
 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的 `head`。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
 
-![random-list](/img/random-list.png)
+![random-list](/images/random-list.png)
 
 ### 解法
 - 第一步，在每个节点的后面插入复制的节点；
-![random-list-step1.png](/img/random-list-step1.png)
+![random-list-step1.png](/images/random-list-step1.png)
 
 - 第二步，对复制节点的 random 链接进行赋值；
-![random-list-step2.png](/img/random-list-step2.png)
+![random-list-step2.png](/images/random-list-step2.png)
 
 - 第三步，分离两个链表。
-![random-list-step3.png](/img/random-list-step3.png)
+![random-list-step3.png](/images/random-list-step3.png)
 
 ```java
 /*

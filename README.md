@@ -1,10 +1,8 @@
-# Coding Interview
-
-<p>
-  <a href="https://github.com/doocs/coding-interview/stargazers"><img src="https://img.shields.io/github/stars/doocs/coding-interview.svg" alt="stars"></a>
-  <a href="https://github.com/doocs/coding-interview/network/members"><img src="https://img.shields.io/github/forks/doocs/coding-interview.svg" alt="forks"></a>
-  <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
-</p>
+# 互联网公司 IT 技术面试题集
+[![stars](https://img.shields.io/github/stars/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/stargazers)
+[![forks](https://img.shields.io/github/forks/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/network/members)
+[![issues](https://img.shields.io/github/issues/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 ## Introduction
 本仓库用于记录各大互联网公司 IT 技术面试高频题，包括《剑指 Offer》、《编程之美》等，我会一直抽空更新。
@@ -14,15 +12,15 @@
 另外，我花了大量时间整理的内容，大家如果有转载的需求，也请注明一下[出处](https://github.com/doocs/coding-interview)。
 
 ## Q & A
-### [剑指 Offer 题集](/solution/coding-interview.md)
-这本书选取的[题目](/solution/coding-interview.md)都是被各大公司面试官反复采用的编程题，极具实战意义。当然，如果一开始觉得这些题目比较难，也是很正常的，因为大公司的面试本身就不简单。我们逐步掌握书中总结的解题方法之后，再去面试大公司，将会轻松很多。
+### [剑指 Offer 题集](/docs/coding-interview.md)
+这本书选取的[题目](/docs/coding-interview.md)都是被各大公司面试官反复采用的编程题，极具实战意义。当然，如果一开始觉得这些题目比较难，也是很正常的，因为大公司的面试本身就不简单。我们逐步掌握书中总结的解题方法之后，再去面试大公司，将会轻松很多。
 
 推荐两个在线刷《剑指 Offer》的平台，我个人比较倾向于 [AcWing](https://www.acwing.com) 。
 
 - [AcWing](https://www.acwing.com/problem/)：墙裂推荐，支持 Java11。团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
-### [编程之美题集](/solution/the-beauty-of-programming.md)
+### [编程之美题集](/docs/the-beauty-of-programming.md)
 
 ## Reading List
 - [x] 《剑指 Offer》 355/355 111

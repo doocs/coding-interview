@@ -1,6 +1,6 @@
 * 题解
-  * [剑指Offer](solution/coding-interview.md)
-  * [编程之美](solution/the-beauty-of-programming.md)
+  * [剑指Offer](docs/coding-interview.md)
+  * [编程之美](docs/the-beauty-of-programming.md)
 
 * 页面
   * [封面]()
