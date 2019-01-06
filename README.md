@@ -1,4 +1,4 @@
-# Coding Interviews
+# Coding Interview
 
 <p>
   <a href="https://github.com/doocs/coding-interview/stargazers"><img src="https://img.shields.io/github/stars/doocs/coding-interview.svg" alt="stars"></a>

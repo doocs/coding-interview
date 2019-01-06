@@ -7,4 +7,4 @@
 * 记录各大互联网公司 IT 技术面试高频题
 
 [GitHub](https://github.com/doocs/coding-interview/)
-[Get Started](#coding-interviews)
+[Get Started](#Coding-Interview)
