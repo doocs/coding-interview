@@ -2072,7 +2072,7 @@ public class Solution {
 ```
 
 ## 24 反转链表
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/33/)
 ### 题目描述
 输入一个链表，反转链表后，输出新链表的表头。
 
@@ -2081,41 +2081,30 @@ public class Solution {
 利用头插法解决。
 
 ```java
-/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-public class Solution {
-    /**
-     * 反转链表
-     * @param head 链表头部
-     * @return 反转后的链表
-     */
-    public ListNode ReverseList(ListNode head) {
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-
         ListNode dummy = new ListNode(-1);
-        dummy.next = null;
-        ListNode p1 = head;
-        ListNode p2 = p1.next;
-        while (p1 != null) {
-            p1.next = dummy.next;
-            dummy.next = p1;
-            p1 = p2;
-            if (p1 == null) {
-                break;
-            }
-            p2 = p1.next;
+        ListNode p = head;
+        ListNode q = head.next;
+        while (q != null) {
+            p.next = dummy.next;
+            dummy.next = p;
+            p = q;
+            q = p.next;
         }
-
-        return dummy.next;
+        p.next = dummy.next;
+        return p;
     }
 }
 ```
@@ -2123,187 +2112,184 @@ public class Solution {
 #### 解法二：递归
 
 ```java
-/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-public class Solution {
-    public ListNode ReverseList(ListNode head) {
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        
-        ListNode next = ReverseList(head.next);
-        ListNode cur = next;
+        ListNode node = reverseList(head.next);
+        ListNode cur = node;
         while (cur.next != null) {
             cur = cur.next;
         }
         cur.next = head;
         head.next = null;
-        return next;
+        return node;
     }
 }
 ```
 
 ## 25 合并两个排序的链表
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/34/)
 ### 题目描述
-输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
+输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。
+
+**样例**
+```
+输入：1->3->5 , 2->4->5
+
+输出：1->2->3->4->5->5
+```
 
 ### 解法
 #### 解法一
 同时遍历两链表进行 `merge`。
 
 ```java
-/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-public class Solution {
-    /**
-     * 合并两个排序链表
-     * @param list1 链表1
-     * @param list2 链表2
-     * @return 合并后的单调不递减链表
-     */
-    public ListNode Merge(ListNode list1, ListNode list2) {
-        if (list1 == null) {
-            return list2;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode merge(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
         }
-        if (list2 == null) {
-            return list1;
+        if (l2 == null) {
+            return l1;
         }
-
+        ListNode p = l1;
+        ListNode q = l2;
         ListNode dummy = new ListNode(-1);
         ListNode cur = dummy;
-        ListNode p1 = list1;
-        ListNode p2 = list2;
-        while (p1 != null && p2 != null) {
-            if (p1.val < p2.val) {
-                ListNode t = p1.next;
-                cur.next = p1;
-                p1.next = null;
-                p1 = t;
+        while (p != null && q != null) {
+            if (p.val < q.val) {
+                ListNode t = p.next;
+                cur.next = p;
+                p.next = null;
+                p = t;
             } else {
-                ListNode t = p2.next;
-                cur.next = p2;
-                p2.next = null;
-                p2 = t;
+                ListNode t = q.next;
+                cur.next = q;
+                q.next = null;
+                q = t;
             }
             cur = cur.next;
         }
-
-        cur.next = p1 == null ? p2 : p1;
+        cur.next = p == null ? q : p;
         return dummy.next;
-
     }
 }
 ```
 
 #### 解法二：递归
 ```java
-/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-public class Solution {
-    /**
-     * 合并两个排序链表
-     * @param list1 链表1
-     * @param list2 链表2
-     * @return 合并后的单调不递减链表
-     */
-    public ListNode Merge(ListNode list1, ListNode list2) {
-        if (list1 == null) {
-            return list2;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode merge(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
         }
-        if (list2 == null) {
-            return list1;
+        if (l2 == null) {
+            return l1;
         }
-
-        if (list1.val < list2.val) {
-            list1.next = Merge(list1.next, list2);
-            return list1;
+        if (l1.val < l2.val) {
+            l1.next = merge(l1.next, l2);
+            return l1;
         }
-
-        list2.next = Merge(list1, list2.next);
-        return list2;
+        l2.next = merge(l1, l2.next);
+        return l2;
     }
 }
 ```
 
 ## 26 树的子结构
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/35/)
 ### 题目描述
-输入两棵二叉树`A`，`B`，判断`B`是不是`A`的子结构。（ps：我们约定空树不是任意一个树的子结构）
+输入两棵二叉树 A、B，判断 B 是不是 A 的子结构。
+
+我们规定空树不是任何树的子结构。
+
+**样例**
+
+树 A：
+```
+     8
+    / \
+   8   7
+  / \
+ 9   2
+    / \
+   4   7
+```
+
+树 B：
+```
+   8
+  / \
+ 9   2
+```
+
+返回 true ,因为 B 是 A 的子结构。
 
 ### 解法
 递归方式遍历：
 
-- 在树A中找到和树B的根结点值一样的结点R
-- 判断树A以R为根结点的子树是否包含与树B一样的结构
+- 在树 A 中找到和树 B 的根结点值一样的结点 R；
+- 判断树 A 以 R 为根结点的子树是否包含与树 B 一样的结构。
 
 ```java
-/*
- public class TreeNode {
- int val = 0;
- TreeNode left = null;
- TreeNode right = null;
-
- public TreeNode(int val) {
- this.val = val;
-
- }
-
- }
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
  */
-public class Solution {
-    /**
-     * 判断root2是否是root1的子树
-     * @param root1 树1
-     * @param root2 树2
-     * @return 是否是子树
-     */
-    public boolean HasSubtree(TreeNode root1, TreeNode root2) {
+class Solution {
+    public boolean hasSubtree(TreeNode pRoot1, TreeNode pRoot2) {
         boolean res = false;
-        if (root1 != null && root2 != null) {
-            if (root1.val == root2.val) {
-                res = isSame(root1, root2);
+        if (pRoot1 != null && pRoot2 != null) {
+            if (pRoot1.val == pRoot2.val) {
+                res = isSame(pRoot1, pRoot2);
             }
             if (!res) {
-                res = HasSubtree(root1.left, root2);
+                res = hasSubtree(pRoot1.left, pRoot2);
             }
             if (!res) {
-                res = HasSubtree(root1.right, root2);
+                res = hasSubtree(pRoot1.right, pRoot2);
             }
         }
-
         return res;
+        
     }
-
+    
     private boolean isSame(TreeNode root1, TreeNode root2) {
         if (root2 == null) {
             return true;
         }
-        if (root1 == null) {
-            return false;
-        }
-        if (root1.val != root2.val) {
+        if (root1 == null || root1.val != root2.val) {
             return false;
         }
         return isSame(root1.left, root2.left) && isSame(root1.right, root2.right);
@@ -2313,70 +2299,80 @@ public class Solution {
 
 
 ## 27 二叉树的镜像
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/37/)
 ### 题目描述
-操作给定的二叉树，将其变换为源二叉树的镜像。
+输入一个二叉树，将它变换为它的镜像。
 
+**样例**
 ```
-源二叉树 
-    	    8
-    	   /  \
-    	  6   10
-    	 / \  / \
-    	5  7 9 11
+输入树：
+      8
+     / \
+    6  10
+   / \ / \
+  5  7 9 11
 
-镜像二叉树
-    	    8
-    	   /  \
-    	  10   6
-    	 / \  / \
-    	11 9 7  5
+ [8,6,10,5,7,9,11,null,null,null,null,null,null,null,null] 
+输出树：
+      8
+     / \
+    10  6
+   / \ / \
+  11 9 7  5
+
+ [8,10,6,11,9,7,5,null,null,null,null,null,null,null,null]
 ```
 
 ### 解法
 将根结点的左右孩子互换，之后递归左右孩子。
 
 ```java
-/*
- public class TreeNode {
- int val = 0;
- TreeNode left = null;
- TreeNode right = null;
-
- public TreeNode(int val) {
- this.val = val;
-
- }
-
- }
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
  */
-public class Solution {
-    /**
-     * 将二叉树转换为它的镜像
-     * @param root 二叉树的根结点
-     */
-    public void Mirror(TreeNode root) {
-        if (root == null || !hasChild(root)) {
+class Solution {
+    public void mirror(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
             return;
         }
-
         TreeNode t = root.left;
         root.left = root.right;
         root.right = t;
-        Mirror(root.left);
-        Mirror(root.right);
-    }
-
-    private boolean hasChild(TreeNode root) {
-        return root.left != null || root.right != null;
+        mirror(root.left);
+        mirror(root.right);
     }
 }
 ```
 
 ## 28 对称的二叉树
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/38/)
 ### 题目描述
-请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+请实现一个函数，用来判断一棵二叉树是不是对称的。
+
+如果一棵二叉树和它的镜像一样，那么它是对称的。
+
+**样例**
+```
+如下图所示二叉树[1,2,2,3,4,4,3,null,null,null,null,null,null,null,null]为对称二叉树：
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+
+如下图所示二叉树[1,2,2,null,4,4,3,null,null,null,null,null,null]不是对称二叉树：
+    1
+   / \
+  2   2
+   \ / \
+   4 4  3
+```
 
 ### 解法
 比较二叉树的前序遍历序列和对称前序遍历序列是否一样，若是，说明是对称的。
