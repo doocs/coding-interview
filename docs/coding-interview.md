@@ -2378,180 +2378,198 @@ class Solution {
 比较二叉树的前序遍历序列和对称前序遍历序列是否一样，若是，说明是对称的。
 
 ```java
-/*
-public class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    public TreeNode(int val) {
-        this.val = val;
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        return isSymmetric(root, root);
     }
-
-}
-*/
-public class Solution {
-    /**
-     * 判断是否是对称二叉树
-     * @param pRoot 二叉树的根结点
-     * @return 是否为对称二叉树
-     */
-    boolean isSymmetrical(TreeNode pRoot) {
-        return isSymmetrical(pRoot, pRoot);
-    }
-
-    private boolean isSymmetrical(TreeNode pRoot1, TreeNode pRoot2) {
-        if (pRoot1 == null && pRoot2 == null) {
+    
+    private boolean isSymmetric(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
             return true;
         }
-        if (pRoot1 == null || pRoot2 == null) {
+        if (root1 == null || root2 == null || root1.val != root2.val) {
             return false;
         }
-        if (pRoot1.val != pRoot2.val) {
-            return false;
-        }
-
-        return isSymmetrical(pRoot1.left, pRoot2.right) && isSymmetrical(pRoot1.right, pRoot2.left);
-
+        return isSymmetric(root1.left, root2.right) && isSymmetric(root1.right, root2.left);
     }
 }
 ```
 
 
 ## 29 顺时针打印矩阵
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/39/)
 ### 题目描述
-输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下 `4 X 4` 矩阵： 
+输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+
+**样例**
 ```
-1   2   3   4
-5   6   7   8
-9   10  11  12
-13  14  15  16
+输入：
+[
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9,10,11,12]
+]
+
+输出：[1,2,3,4,8,12,11,10,9,5,6,7]
 ```
 
-则依次打印出数字：
-```
-1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
-```
 ### 解法
 由外往里，一圈圈打印矩阵即可。
 
 ```java
-import java.util.ArrayList;
-
-public class Solution {
-    /**
-     * 转圈打印矩阵
-     * @param matrix 矩阵
-     * @return 存放结果的list
-     */
-    public ArrayList<Integer> printMatrix(int[][] matrix) {
-        ArrayList<Integer> list = new ArrayList<>();
-        if (matrix == null) {
-            return list;
+class Solution {
+    public int[] printMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length < 1) {
+            return new int[] {};
         }
-        int m = matrix.length - 1;
-        int n = matrix[0].length - 1;
-        int i = 0, j = 0;
-        while (i <= m && j <= n) {
-            circlePrint(list, matrix, i++, j++, m--, n--);
+        int m = matrix.length, n = matrix[0].length;
+        int[] res = new int[m * n];
+        int[] index = new int[1];
+        index[0] = 0;
+        int i = 0, j = 0, p = m - 1, q = n - 1;
+        while (i <= p && j <= q) {
+            add(matrix, res, index, i++, j++, p--, q--);
         }
-        return list;
+        return res;
     }
-
-    private void circlePrint(ArrayList<Integer> list, int[][] matrix, int i, int j, int m, int n) {
-        if (i == m) {
-            for (int p = j; p <= n; ++p) {
-                list.add(matrix[i][p]);
+    
+    private void add(int[][] matrix, int[] res, int[] index, int i, int j, int p, int q) {
+        if (i == p) {
+            for (int m = j; m <= q; ++m) {
+                res[index[0]++] = matrix[i][m];
             }
-        } else if (j == n) {
-            for (int p = i; p <= m; ++p) {
-                list.add(matrix[p][j]);
+        } else if (j == q) {
+            for (int m = i; m <= p; ++m) {
+                res[index[0]++] = matrix[m][j];
             }
         } else {
-            for (int p = j; p < n; ++p) {
-                list.add(matrix[i][p]);
+            for (int m = j; m < q; ++m) {
+                res[index[0]++] = matrix[i][m];
             }
-            for (int p = i; p < m; ++p ) {
-                list.add(matrix[p][n]);
+            for (int m = i; m < p; ++m) {
+                res[index[0]++] = matrix[m][q];
             }
-            for (int p = n; p > j; --p) {
-                list.add(matrix[m][p]);
+            for (int m = q; m > j; --m) {
+                res[index[0]++] = matrix[p][m];
             }
-            for (int p = m; p > i; --p) {
-                list.add(matrix[p][j]);
+            for (int m = p; m > i; --m) {
+                res[index[0]++] = matrix[m][j];
             }
         }
+        
     }
 }
 ```
 
-### 测试用例
-1. 数组中有多行多列；数组中只有一行；数组中只有一列；数组中只有一行一列。
 
 ## 30 包含min函数的栈
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/90/)
 ### 题目描述
-定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为`O(1)`）。
+设计一个支持 push，pop，top 等操作并且可以在 O(1) 时间内检索出最小元素的堆栈。
+
+- push(x)–将元素x插入栈中
+- pop()–移除栈顶元素
+- top()–得到栈顶元素
+- getMin()–得到栈中最小元素
+
+**样例**
+```
+MinStack minStack = new MinStack();
+minStack.push(-1);
+minStack.push(3);
+minStack.push(-4);
+minStack.getMin();   --> Returns -4.
+minStack.pop();
+minStack.top();      --> Returns 3.
+minStack.getMin();   --> Returns -1.
+```
 
 ### 解法
 定义两个`stack`。
 
-压栈时，先将元素`node`压入`stack1`。然后判断`stack2`的情况：
-- `stack2`栈为空或者栈顶元素大于`node`，则将`node`压入`stack2`中。
-- `stack2`栈不为空且栈定元素小于`node`，则重复压入栈顶元素。
+压栈时，先将元素 `x` 压入 `stack1`。然后判断 `stack2` 的情况：
 
-获取最小元素时，从`stack2`中获取栈顶元素即可。
+- `stack2` 栈为空或者栈顶元素大于 `x`，则将 `x` 压入 `stack2` 中。
+- `stack2` 栈不为空且栈定元素小于 `x`，则重复压入栈顶元素。
+
+获取最小元素时，从 `stack2` 中获取栈顶元素即可。
 
 ```java
-import java.util.Stack;
+class MinStack {
 
+    private Stack<Integer> stack1;
+    private Stack<Integer> stack2;
 
-public class Solution {
-
-    private Stack<Integer> stack1 = new Stack<>();
-    private Stack<Integer> stack2 = new Stack<>();
-
-    /**
-     * 压栈
-     * @param node 待压入的元素
-     */
-    public void push(int node) {
-        stack1.push(node);
-        if (stack2.isEmpty() || stack2.peek() >= node) {
-            stack2.push(node);
+    /** initialize your data structure here. */
+    public MinStack() {
+        stack1 = new Stack<>();
+        stack2 = new Stack<>();
+    }
+    
+    public void push(int x) {
+        stack1.push(x);
+        if (stack2.isEmpty() || stack2.peek() > x) {
+            stack2.push(x);
         } else {
             stack2.push(stack2.peek());
         }
     }
-
+    
     public void pop() {
         stack1.pop();
         stack2.pop();
     }
-
+    
     public int top() {
-        return stack2.peek();
+        return stack1.peek();
     }
-
-    /**
-     * O(1)获取栈中最小值
-     * @return 最小值
-     */
-    public int min() {
+    
+    public int getMin() {
         return stack2.peek();
     }
 }
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.push(x);
+ * obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.getMin();
+ */
 ```
 
 ## 31 栈的压入、弹出序列
-来源：[AcWing](https://www.acwing.com/problem/content/15/)
+来源：[AcWing](https://www.acwing.com/problem/content/40/)
 ### 题目描述
-输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列`1,2,3,4,5`是某栈的压入顺序，序列`4,5,3,2,1`是该压栈序列对应的一个弹出序列，但`4,3,5,1,2`就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）
+输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。
+
+假设压入栈的所有数字均不相等。
+
+例如序列 `1,2,3,4,5` 是某栈的压入顺序，序列 `4,5,3,2,1` 是该压栈序列对应的一个弹出序列，但 `4,3,5,1,2` 就不可能是该压栈序列的弹出序列。
+
+注意：若两个序列为空或长度不等则视为并不是一个栈的压入、弹出序列。
+
+**样例**
+```
+输入：[1,2,3,4,5]
+      [4,5,3,2,1]
+
+输出：true
+```
 
 ### 解法
 判断下一个要弹出的元素：
+
 - 如果刚好是栈顶元素，直接弹出。
 - 如果不在栈顶，则把压栈序列中还没有入栈的数字压入栈，直到待弹出的数字压入栈顶。
 - 如果所有数字都压入栈顶后依然没有后找到下一个弹出的数字，则不可能是弹出序列。
