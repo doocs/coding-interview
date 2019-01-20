@@ -1,4 +1,4 @@
-# 剑指 Offer 题解
+# 《剑指 Offer》
 ## 3.1 找出数组中重复的数
 来源：[AcWing](https://www.acwing.com/problem/content/14/)
 ### 题目描述 

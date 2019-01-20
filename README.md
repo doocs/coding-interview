@@ -5,27 +5,29 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 ## Introduction
-本仓库用于记录各大互联网公司 IT 技术面试高频题，包括《剑指 Offer》、《编程之美》等，我会一直抽空更新。
+本仓库用于记录各大互联网公司 IT 技术面试高频题以及经典书籍读书笔记，包括《剑指 Offer》、《编程之美》、《代码整洁之道》等，抽空更新中。
 
-如果大家觉得哪些地方写错了，或者有疑惑，欢迎提 Issues 反馈给我；我使用的语言是 Java，但也欢迎大家提交题目不同语言版本的 Solution，提交之前需要确保提交的内容格式与整个项目保持统一，嘿嘿，我对文档的规范是很苛刻的噢~
-
-另外，我花了大量时间整理的内容，大家如果有转载的需求，也请注明一下[出处](https://github.com/doocs/coding-interview)。
-
-## Q & A
-### [剑指 Offer 题集](/docs/coding-interview.md)
+## Notes
+### [《剑指 Offer》](/docs/coding-interview.md)
 这本书选取的[题目](/docs/coding-interview.md)都是被各大公司面试官反复采用的编程题，极具实战意义。当然，如果一开始觉得这些题目比较难，也是很正常的，因为大公司的面试本身就不简单。我们逐步掌握书中总结的解题方法之后，再去面试大公司，将会轻松很多。
 
-推荐两个在线刷《剑指 Offer》的平台，我个人比较倾向于 [AcWing](https://www.acwing.com) 。
+推荐两个在线刷《剑指 Offer》的平台，个人比较倾向于 [AcWing](https://www.acwing.com) 。
 
 - [AcWing](https://www.acwing.com/problem/)：墙裂推荐，支持 Java11。团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
-### [编程之美题集](/docs/the-beauty-of-programming.md)
+### [《编程之美》](/docs/the-beauty-of-programming.md)
+
+### [《代码整洁之道》](/docs/clean-code.md)
+这本书名为 *Clean Code*，乃是 Object Mentor（鲍勃大叔开办的技术咨询和培训公司）一干大牛在编程方面的经验累积。写整洁代码，需要遵循大量的小技巧，贯彻刻苦习得的“整洁感”。
+
+作者 Robert C. Martin 在书中阐述了代码各个方面如何做到整洁的经验与最佳实践。我们若能长期遵照这些经验编写代码，所谓“代码感”也就自然而然滋生出来。
 
 ## Reading List
-- [x] 《剑指 Offer》 355/355 111
+- [x] 《剑指 Offer》 355/355
+- [x] 《代码整洁之道》 296/296
 - [ ] 《编程珠玑第二版》 
-- [ ] 《编程之美：微软技术面试心得》 57/382  20
+- [ ] 《编程之美：微软技术面试心得》 57/382
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
 - [ ] 《Java 程序员面试笔试宝典》 67/349
 - [ ] 《程序员面试金典》
