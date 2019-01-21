@@ -16,16 +16,18 @@
 - [AcWing](https://www.acwing.com/problem/)：墙裂推荐，支持 Java11。团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 
-### [《编程之美》](/docs/the-beauty-of-programming.md)
-
 ### [《代码整洁之道》](/docs/clean-code.md)
 这本书名为 *Clean Code*，乃是 Object Mentor（鲍勃大叔开办的技术咨询和培训公司）一干大牛在编程方面的经验累积。写整洁代码，需要遵循大量的小技巧，贯彻刻苦习得的“整洁感”。
 
 作者 Robert C. Martin 在书中阐述了代码各个方面如何做到整洁的经验与最佳实践。我们若能长期遵照这些经验编写代码，所谓“代码感”也就自然而然滋生出来。
 
+### [《阿里巴巴 Java 开发手册》](/docs/effective-coding.md)
+别人都说我们是搬砖的码农，但我们知道自己是追求个性的艺术家。也许我们不会过多在意自己的外表和穿着，但在我们不羁的外表下，骨子里追求着代码的美、系统的美、设计的美，代码规范其实就是一个对程序美的定义。
+
 ## Reading List
 - [x] 《剑指 Offer》 355/355
 - [x] 《代码整洁之道》 296/296
+- [ ] 《Effective Coding 阿里巴巴 Java 开发手册》 0/96
 - [ ] 《编程珠玑第二版》 
 - [ ] 《编程之美：微软技术面试心得》 57/382
 - [ ] 《程序员代码面试指南——IT名企算法与数据结构题目最优解》
