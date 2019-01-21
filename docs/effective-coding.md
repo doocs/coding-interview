@@ -17,6 +17,7 @@
     - 方法调用的点符号与下文一起换行。
     - 方法调用的点符号与下文一起换行时，在逗号后进行。
     - 在括号前不要换行。
+
 ```java
 // 正例
 StringBuffer sb = new StringBuffer();
@@ -34,6 +35,7 @@ sb.append("ge").append("cheng")...append
 method(args1, args2, args3, ...
     , argsX);
 ```
+
 5. IDE 的 text file encoding 设置为 UTF-8；IDE 文件的换行符使用 UNIX 格式，不要使用 Windows 格式。
 1. **没有必要**增加若干空格来使某一行的字符与上一行对应位置的字符对齐。
 
@@ -51,6 +53,7 @@ method(args1, args2, args3, ...
     - **说明**：String 重写了 hashCode 和 equals 方法，所以我们可以非常愉快地将 String 对象作为 key 来使用。
 1. ArrayList 的 subList 结果不可强转成 ArrayList，否则会抛出 ClassCastException 异常。<br>**说明**：subList 是 ArrayList 的一个视图，对于 subList 子列表的所有操作最终会反映到原列表上。
 1. 在 subList 场景中，高度注意对原集合元素个数的修改，会导致子列表的遍历、增加、删除均产生 `ConcurrentModificationException`。
+
 ```java
 List<Integer> list = new ArrayList<>();
 int count = 5;
@@ -68,7 +71,9 @@ list.add(11);
 // Exception in thread "main" java.util.ConcurrentModificationException
 System.out.println(subList);
 ```
+
 7. 在使用工具类 Arrays.asList() 把数组转换成集合时，不能使用其修改集合相关的方法，否则会抛出 `UnsupportedOperationException` 异常。<br>**说明**：asList 的返回对象是一个 Arrays 内部类，并没有实现集合的修改方法。体现的是适配器模式，只是转换接口，后台的数据仍是数组。
+
 ```java
 String[] str = new String[] {"you", "wu"};
 List list = Arrays.asList(str);
@@ -78,6 +83,7 @@ List list = Arrays.asList(str);
 str[0] = "bingo";
 // list.get(0) 也会随着修改。
 ```
+
 8. 在集合初始化时，指定集合初始值大小。若 HashMap 需要放置 1024 个元素，由于没有设置初始大小（默认 16），随着元素不断增加，容量被迫扩大 7 次，resize 需要重建 hash 表，这严重影响性能。
 1. 使用 entrySet 遍历 Map 类集合 K/V，而不是 keySet 方式遍历。如果时 JDK8，使用 Map.foreach() 方法。
 1. **高度注意** Map 类集合 K/V 能不能存储 null 值的情况。由于 HashMap 的干扰，很多人认为 ConcurrentHashMap 是可以置入 null 值的，而事实上，存储 null 值时会抛出 NPE 异常。
@@ -93,6 +99,7 @@ str[0] = "bingo";
 
 ### 并发处理
 1. 在创建线程或线程池时，请指定有意义的线程名称，方便出错时回溯。
+
 ```java
 public class TimeTaskThread extends Thread {
     public TimeTaskThread() {
