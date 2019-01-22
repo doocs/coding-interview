@@ -27,7 +27,8 @@
 ## Reading List
 - [x] 《剑指 Offer》 355/355
 - [x] 《代码整洁之道》 296/296
-- [ ] 《Effective Coding——阿里巴巴 Java 开发手册》 96/96
+- [x] 《Effective Coding——阿里巴巴 Java 开发手册》 96/96
+- [ ] 《Effective Java 第二版》 阅读中...
 - [ ] 《Redis 实战》
 - [ ] 《Redis 设计与实现》
 - [ ] 《Java 工程师修炼之道》 0/352
@@ -42,6 +43,5 @@
 - [ ] 《高性能 MySQL》
 - [ ] 《图解 HTTP》
 - [ ] 《深入理解 Java 虚拟机》
-- [ ] 《Effective Java 第二版》
 - [ ] 《Java 编程思想》
 - [ ] 《鸟哥的 Linux 私房菜》
