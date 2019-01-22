@@ -8,7 +8,7 @@
 1. 如果一个变量值仅在一个范围内变化，则用 enum 类型来定义。
 
 ### 代码格式
-1. if/for/while/switch/do 等保留字与括号之间都**必须加空格**。
+1. `if/for/while/switch/do` 等保留字与括号之间都**必须加空格**。
 1. 采用 4 个空格缩进，禁止使用 Tab 控制符。
 1. 注释的双斜线与注释内容之间**有且仅有一个空格**。e.g. `// 这是示例注释`
 1. 单行字符数不超过 120 个，超出则需要换行，换行遵循：
@@ -51,7 +51,7 @@ method(args1, args2, args3, ...
     - 因为 Set 存储的是不重复对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的对象必须重写这两个方法。
     - 如果自定义对象作为 Map 的键，那么必须重写这两个方法。
     - **说明**：String 重写了 hashCode 和 equals 方法，所以我们可以非常愉快地将 String 对象作为 key 来使用。
-1. ArrayList 的 subList 结果不可强转成 ArrayList，否则会抛出 ClassCastException 异常。<br>**说明**：subList 是 ArrayList 的一个视图，对于 subList 子列表的所有操作最终会反映到原列表上。
+1. ArrayList 的 subList 结果不可强转成 ArrayList，否则会抛出 `ClassCastException` 异常。<br>**说明**：subList 是 ArrayList 的一个视图，对于 subList 子列表的所有操作最终会反映到原列表上。
 1. 在 subList 场景中，高度注意对原集合元素个数的修改，会导致子列表的遍历、增加、删除均产生 `ConcurrentModificationException`。
 
 ```java
@@ -165,3 +165,15 @@ private static final Logger logger = LoggerFactory.getLogger(Abc.class);
 1. 利用延迟关联或者子查询优化超多分页场景。<br>**说明**：MySQL 并不是跳过 offset 行，而是取 offset+N 行，然后返回放弃前 offset 的行，返回 N 行。当 offset 特别大的时候，效率会非常的低下，要么控制返回的总页数，要么对超过阈值的页数进行 SQL 改写。
 1. 建组合索引的时候，区分度最高的在最左边。
 1. SQL 性能优化的目标，至少要达到 range 级别，要求是 ref 级别，最好是 consts。
+
+### SQL 语句
+1. 不要使用 count(列名) 或 count(常量) 来替代 count(\*)，count(\*) 是 SQL92 定义的标准统计行数的语句，跟数据库无关，跟 NULL 和非 NULL 无关。<br>**说明**：count(\*) 会统计值为 NULL 的行，而 count(列名) 不会统计此列为 NULL 值的行。
+1. `count(distinct column)` 计算该列除 NULL 外的不重复行数。注意，`count(distinct column1,column2)` 如果其中一列全为 NULL，那么即使另一列用不同的值，也返回为 0。
+1. 当某一列的值全为 NULL 时，`count(column)` 的返回结果为 0，但 `sum(column)` 的返回结果为 NULL，因此使用 sum() 时需注意 NPE 问题。<br> 可以使用如下方式来避免 sum 的 NPE 问题。
+
+```sql
+SELECT IF(ISNULL(SUM(g), 0, SUM(g))) FROM table;
+```
+
+4. 使用 `ISNULL()` 来判断是否为 NULL 值。<br>**说明**：NULL 与任何值的直接比较都为 NULL。
+1. 不得使用外键与级联，一切外键概念必须在应用层解决。<br>**说明**：以学生和成绩的关系为例，学生表的 student_id 是主键，成绩表的 student_id 则为外键。如果更新学生表中的 student_id，同时触发成绩表中的 student_id 更新，即为**级联更新**。外键与级联更新适用于单机低并发，不适合分布式、高并发集群；级联更新是强阻塞，存在数据库更新风暴的风险；外键影响数据库的插入速度。
