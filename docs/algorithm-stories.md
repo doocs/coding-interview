@@ -54,7 +54,7 @@ if ((思考时间 > 2 分钟) || (已经知道答案了吗)) {
 
 ```java
 int res = 5050;
-for (int i = 0; i < 100; ++i) {
+for (int i = 0; i < 99; ++i) {
     res -= item[i];
 }
 System.out.println("最后剩下的数是：" + res);
