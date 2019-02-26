@@ -6,6 +6,7 @@
   * [代码整洁之道](docs/clean-code.md)
   * [阿里巴巴 Java 开发手册](docs/effective-coding.md)
   * [枕边算法书](docs/algorithm-stories.md)
+  * [Effective Java](docs/effective-java.md)
 
 * 页面
   * [封面]()
