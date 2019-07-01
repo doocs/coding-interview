@@ -220,6 +220,7 @@ public enum Singleton {
     public void otherMethods() {...}
 }
 ```
+
 这种方法更加简洁，无偿提供了序列化机制，绝对防止多次实例化，是实现 Singleton 的最佳方式。
 
 ### 第 4 条：通过私有构造器强化不可实例化的能力
