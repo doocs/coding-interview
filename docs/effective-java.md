@@ -243,3 +243,122 @@ public class UtilityClass {
 如上，由于显示的构造器是私有的，则不会在类的外部被实例化。 AssertionError 不是必须的，但是这样写，可以避免在类的内部调用构造器。它保证该类在任何情况下都不会被实例化。
 
 **注意** 这种用法也有副作用，它使得一个类不能被子类化。因为所有的构造器都必须显式或隐式地调用超类（superclass）构造器，在上面这种情况下，子类就没有可访问的超类构造器去调用了。
+
+### 第 5 条：避免创建不必要的对象
+一般来说，最好不要在每次需要的时候都创建一个功能相同的新对象而是重用对象。重用方式既快速，又流行。如果对象是不可变的（immutable），它就始终可以被重用。
+下面举一个极端的反面例子，考虑下面的语句：
+
+```java
+
+String s = new String("stringette");  // Don't do this!
+
+```
+
+上面的语句每次被执行的时候都会创建一个新的 String 实例，但是这些创建对象的动作全都是不必要的。传递给 String 构造器的参数（"stringette"）本身就是一个 String 实例，功能方面等同于构造器创建的所有对象。想一想 ，如果该用法在一个循环中，或者是在一个被频繁调用的方法中，就会创建出成千上万个不必要的 String 实例。
+
+改进后的版本如下所示：
+
+```java
+
+String s = "stringette";
+
+```
+
+上面版本只用了一个 String 实例，而不是每次执行的时候都创建一个新的 String 实例。并且，它还可以保证，对于所有在同一台虚拟机中运行的代码，只要它们包含相同的字符串字面常量，该对象就会被重用[JLS，3.10.5]。
+
+对于同时提供了静态工厂方法（见第 1 条）和构造器的不可变类，通常应该使用静态工厂方法而不是构造器，这样可以避免创建不必要的对象。构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法重来不要求这样做，实际上也不会这么做。
+
+除了重用不可变对象之外，也可以重用那些已知不会被修改的可变对象。下面通过我们熟悉的可变 Date 对象来实现一个比较微妙、也比较具体的反面例子，由于 Date 对象一旦计算出来之后就不再改变。
+
+```java
+
+public class Person {
+
+    private final Date birthDate;
+
+    public Person(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    // Other fields, methods, and constructor omitted
+    // Don't do this!
+    public boolean isBabyBoomer() {
+        // Unnecessary allocation of expensive object
+        Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        gmtCal.set(1946, Calendar.JANUARY, 1, 0, 0, 0);
+        Date boomStart = gmtCal.getTime();
+        gmtCal.set(1965, Calendar.JANUARY, 1, 0, 0, 0);
+        Date boomEnd = gmtCal.getTime();
+
+        return birthDate.compareTo(boomStart) >= 0 &&
+                birthDate.compareTo(boomEnd) < 0;
+    }
+
+}
+
+```
+
+上面的类建立了一个模型：其中有一个人，并有一个 isBabyBoomer 方法，用来检验这个人是否为一个 “baby boomber（生育高峰期出生的小孩）” ，相当于就是检测这个人是否出生于 1946 年至 1964 年之间。
+
+通过上述代码可以发现，isBabyBoomer 方法每次都调用的时候，都会创建一个新的  Calendar、一个 TimeZone 和两个 Date 实例，这其实是不必要的。下面我们通过一个改进的版本，用一个静态的初始化器（`initializer`），避免了这种效率低下的情况：
+
+```java
+
+public class Person {
+    private final Date birthDate;
+
+    public Person(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+    // Other fields, methods, and constructor omitted
+
+    // The starting and ending dates of the baby boom
+    private static final Date BOOM_START;
+    private static final Date BOOM_END;
+
+    static {
+        Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        gmtCal.set(1946, Calendar.JANUARY, 1, 0, 0, 0);
+        BOOM_START = gmtCal.getTime();
+        gmtCal.set(1965, Calendar.JANUARY, 1, 0, 0, 0);
+        BOOM_END = gmtCal.getTime();
+    }
+
+    public boolean isBabyBoomer() {
+        return birthDate.compareTo(BOOM_START) >= 0 &&
+                birthDate.compareTo(BOOM_END) < 0;
+    }
+}
+
+```
+
+改进后的 Person 类只在初始化的时候创建 Calendar、 TimeZone 和 Date 实例一次，而不是在每次调用 isBabyBoomer 的时候都会创建这些实例。如果 isBabyBoomer 方法被频繁地调用，改进后的方法将会显著的提高性能。就比如我们要检查 1000 万人是否出生在 1946 年和 1964 年之间，经过测试，原来的版本需要 32000ms，而改进后的只需要 130ms，大约快了 250 倍。但是这种优化带来的效果不总是那么明显，因为 Calendar 实例的创建代价特别昂贵。但是改进后的版本在数据量大的情况下就会有明显的性能提升，并且代码更加的清晰，因为 BOOM_START 和 BOOM_END 很明显应该被作为常量来对待。
+
+在本条目前面的例子中，所讨论到的对象显然都是能够被重用的，因为它们被初始化后就不会再改变。其它有些情形则并不总是那么明显了。考虑适配器（`adapter`）的情形，有时也叫做视图（`view`）。适配器是指这样一个对象：它把功能委托给一个后备对象（`backing object`），从而为后备对象提供一个可以替代的接口。由于适配器除了后备对象之外，没有其它的状态信息，所以针对某个给定对象的特定适配器而言，它不需要创建多个适配器实例。
+
+例如，Map 接口的 keySet 方法返回该 Map 对象的 Set 视图，其中包含该 Map 中所有的键（`key`）。表面看起来，好像每次调用 keySet 都应该创建一个新的 Set 实例，但是，对于一个给定的 Map 对象，实际上每次调用 keySet 方法都会返回同样的 Set 实例。虽然被返回的 Set 实例一般是可改变的，但是所有返回的对象在功能上是等同的：当其中一个返回对象发生变化的时候，所有其它的返回对象也要发生变化，因为它们是有同一个 Map 实例支撑的。虽然创建 keySet 视图对象的多个实例并无害处，却也是没有必要的。
+
+在 Java 1.5 发行版本中，有一种创建多余对象的新方法，称为自动装箱（`autoboxing`），它允许程序员将基本类型和装箱基本类型（`Boxed Primitive Type`）混用，按需要自动装箱和拆箱。自动装箱使得基本类型和装箱基本类型的差别变得很模糊，但是并没有完全消除。它们在语义上有着微妙的差别，在性能上也有着比较明显的差别（见第 49 条）。考虑下面的程序，它计算所有 int 正值的总和。为此，程序必须使用 long 类型，因为 int 不够大，无法容纳所有 int 正值的总和：
+
+```java
+
+// Hideously slow program! Can you spot the object creation?
+public static void mian(String[] args) {
+    Long sum = 0L;
+    for (long i = 0; i < Integer.MAX_VALUE; i++) {
+        sum += i;
+    }
+    System.out.println(sum);
+}
+
+```
+
+这段程序程序算出的答案是正确的，但是比实际情况要更慢一些，只因为打错一个字符。变量 sum 被声明成 Long 而不是 long，意味着程序构造了大约 2^31 个多余的 Long 实例（大约每次往 Long sum 中增加 long 时构造一个实例）。将 sum 的声明从 Long 改成 long，运行时间从 43 秒减少到 6.8 秒。结论很明显：**要优先使用基本类型而不是装箱基本类型，要当心无意识的自动装箱。**
+
+当然，我们也不要错误地认为本条目所介绍的内容暗示着“创建对象的代价非常昂贵，我们应该尽可能地避免创建对象”。相反，由于小对象的构造器只做很少量的显式工作，所以，小对象的创建和回收动作是非常廉价的，特别是在现代的 JVM 实际上更是如此。通过创建附加的对象，提升程序的清晰性、简洁性和功能性，这通常是件好事。
+
+反之，通过维护自己的对象池（`object pool`）来避免创建对象并不是一种好的做法，除非池中的对象是非常重量级的。真正正确使用对象池的典型对象示例就是数据库连接池。建立数据库连接的代价是非常昂贵的，因此重用这些对象是非常有意义。而且，数据库的许可可能限制你只能使用一定数量的连接。但是，一般而言，维护自己的对象池必定会把代码弄得很乱，同时增加内存占用（`footprint`），并且还会损害性能。所以我们要慎用对象池。
+
+与本条目对应的是第 39 条中有关的“保护性拷贝（`defensive copying`）”的内容。本条目提及“当你应该重用现有对象的时候，请不要创建新的对象”，而第 39 条则说“当你应该创建新的对象的时候，请不要重用现有的对象”。注意，在提倡使用保护性拷贝的时候，是因为重用对象而付出的代价要远远大于因创建对象而付出的代价。必要时如果没能实施保护性拷贝，会导致潜在的错误和安全漏洞；而不必要的创建对象则只会影响程序的风格和性能。
+
+**总结来说，就是应该按情况具体分析，该创建对象还是重用对象；通过分析，我们应该知道没有保护的重用对象，需要特别注意，不然可能会导致错误和安全漏洞。**
