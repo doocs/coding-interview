@@ -362,3 +362,49 @@ public static void mian(String[] args) {
 与本条目对应的是第 39 条中有关的“保护性拷贝（`defensive copying`）”的内容。本条目提及“当你应该重用现有对象的时候，请不要创建新的对象”，而第 39 条则说“当你应该创建新的对象的时候，请不要重用现有的对象”。注意，在提倡使用保护性拷贝的时候，是因为重用对象而付出的代价要远远大于因创建对象而付出的代价。必要时如果没能实施保护性拷贝，会导致潜在的错误和安全漏洞；而不必要的创建对象则只会影响程序的风格和性能。
 
 **总结来说，就是应该按情况具体分析，该创建对象还是重用对象；通过分析，我们应该知道没有保护的重用对象，需要特别注意，不然可能会导致错误和安全漏洞。**
+
+### 第 6 条：消除过期的对象引用
+当你从手工管理内存的语言（比如 C 或 C++）转换到具有垃圾回收功能的语言（比如 Java 或 Go）的时候，程序员的工作会变得更加的容易，因为当你用完了对象之后，它们会被自动回收。当你由 C 或 C++ 语言转换到 Java 编程语言第一次经历对象回收功能的时候，会觉得有点不可思议。这很容易给你留下不需要自己考虑内存管理的印象，其实不然。
+
+考虑下面这个简单的栈实现的例子：
+
+```java
+
+// Can you spot the "memory leak"
+public class Stack {
+    private Object[] elements;
+    private int size = 0;
+    private static final int DEFAULT_INITIAL_CAPACITY = 16;
+
+    public Stack() {
+        elements = new Object[DEFAULT_INITIAL_CAPACITY];
+    }
+
+    public void push(Object e) {
+        ensureCapacity();
+        elements[size++] = e;
+    }
+
+    public Object pop() {
+        if (size == 0) 
+            throw new EmptyStackException();
+        return elements[--size];
+    }
+
+    /**
+     * Ensure space for at least one more element, roughly
+     * doubling the capacity each time the array needs to grow.
+     */
+    private void ensureCapacity() {
+        if (elements.length == size) {
+            elements = Arrays.copyOf(elements, 2 * size + 1);
+        }
+    }
+
+}
+
+```
+
+这段程序（它的泛型版本请见第 26 条）中并没有很明显的错误。但是这个程序中隐藏着一个问题。不严格地讲，这段程序有一个“内存泄漏”，随着垃圾回收器活动的增加，或者由于内存占用的不断增加，程序性能的降低会逐渐表现出来。在极端的情况下，这种内存泄漏会导致磁盘交换（`Disk Paging`），甚至导致程序失败（`OutOfMemoryError`错误），但是这种失败情形相对比较少见。
+
+那么，程序中在哪里发生了泄漏呢？如果一个栈先是增长，然后再收缩，那么，从栈中弹出来的对象将不会被当作垃圾回收，即使使用栈的程序不再引用这些对象，它们也不会被回收。这是因为，栈内部维护着对这些对象的过期引用（`Obsolete refence`）。所谓的过期引用，是指永远也不会再被解除的引用。在本例中，凡是在 elements 数组的“活动部分（`active portion`）”之外的任何引用都是过期的。活动部分是指 elements 中小标小于 size 的那些元素。
