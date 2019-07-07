@@ -29,3 +29,9 @@
 
 ### [《Effective Java》](/docs/effective-java.md)
 这本书共包含了 78 个条目，每个条目讨论一条规则。它适用于任何具有实际 Java 工作经验的工程师，对于高级工程师，也能够提供一些发人深思的东西，是所有 Java 工程师必读书籍之一。
+
+## Contributors
+<a href="https://opencollective.com/doocs-coding-interview/contributors.svg?width=890&button=true"><img src="https://opencollective.com/doocs-coding-interview/contributors.svg?width=890&button=false" /></a>
+
+## License
+<a rel="license" href="https://github.com/doocs/coding-interview/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
