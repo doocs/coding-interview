@@ -1,8 +1,9 @@
 # 互联网公司 IT 技术面试题集
-[![stars](https://img.shields.io/github/stars/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/stargazers)
+[![license](https://badgen.net/github/license/doocs/leetcode?color=green)](https://github.com/doocs/coding-interview/blob/master/LICENSE)
+[![stars](https://badgen.net/github/stars/doocs/coding-interview)](https://github.com/doocs/coding-interview/stargazers)
+[![issues](https://badgen.net/github/open-issues/doocs/coding-interview)](https://github.com/doocs/coding-interview/issues)
 [![forks](https://img.shields.io/github/forks/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/network/members)
-[![issues](https://img.shields.io/github/issues/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![PRs Welcome](https://badgen.net/badge/PRs/welcome/green)](http://makeapullrequest.com)
 
 ## Introduction
 本仓库用于记录各大互联网公司 IT 技术面试高频题以及经典书籍读书笔记，包括《剑指 Offer》、《编程之美》、《代码整洁之道》等，抽空更新中。
