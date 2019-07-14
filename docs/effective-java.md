@@ -545,4 +545,21 @@ public boolean equals(Object o) {
 
 ```
 
-那么什么时候应该覆盖 Object.equals 呢？如果类具有自己特有的“逻辑相等”概念（不同于对象等同的概念），而且超类还没有覆盖 equals 以实现期望的行为，这是我们就需要覆盖 equals 方法。
+那么什么时候应该覆盖 Object.equals 呢？如果类具有自己特有的“逻辑相等”概念（不同于对象等同的概念），而且超类还没有覆盖 equals 以实现期望的行为，这是我们就需要覆盖 equals 方法。这通常属于“值类（`value class`）”的情形。值类仅仅是一个表示值的类，例如 Integer 或者 Date。
+
+有一种“值类”不需要覆盖 equals 方法，即用实例受控（见第 1 条）确保“每个值至多只存在一个对象”的类。枚举类型（见第 30 条）就属于这种类。对于这样的类而言，逻辑相同与对象等同是一回事，因此 Object 上的 equals 方法等同于逻辑意义上的 equals 方法。
+
+在覆盖 equals 方法的时候，你必须遵守它的通用约定。下面的内容来自于 Object 的规范[JavaSE6]：
+equals 方法实现了等价关系（`equivalence relation`）：
+
+- **自反性（`reflexive`）**。对于任何非 null 的引用值 x，x.equals(x) 必须返回 true。
+
+- **对称性（`symmetric`）**。对于任何非 null 的引用值 x 和 y，当且仅当 y.equals(x) 返回 true 时，x.equals(y) 必须返回 true。
+
+- **传递性（`transitive`）**。对于任何非 null 的引用值 x、y 和 z，如果 x.equals(y) 返回 true，并且 y.equals(z) 也返回 true，那么 x.equals(z) 也必须返回 true。
+
+- **一直性（`consistent`）**。对于任何非 null 的引用值 x 和 y，只要 equals 的比较操作在对象中所用的信息没有被修改，多次调用 x.equals(y) 就会一致地返回 true，或者一致地返回 false。
+
+- **非空性**。对于任何非 null 的引用值 x，x.equlas(null) 必须返回 false。
+
+现在我们按照顺序逐一查看以下 5 个要求：
