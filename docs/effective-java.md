@@ -563,3 +563,277 @@ equals 方法实现了等价关系（`equivalence relation`）：
 - **非空性**。对于任何非 null 的引用值 x，x.equlas(null) 必须返回 false。
 
 现在我们按照顺序逐一查看以下 5 个要求：
+
+**自反性（`reflexive`）** --- 第一个要求仅仅说明对象必须等于其本身。很难想象会无意识地违反这一条。假如违背了这一条，然后把该类的实例添加到集合（`collection`）中，该集合的 contains 方法将会果断地告诉你，该集合不包含你刚刚添加的实例。
+
+**对称性（`symmetry`）** --- 第二个要求是说，任何对象对于“它们是否相等”的问题都必须保存一致。与第一个要求不同，若无意中违反这一条，这种情形倒是不难想象。例如，考虑下面的类，它实现了一个区分大小写的字符串。字符串由 toString 保存，但在比较操作中被忽略。
+
+```java
+
+// Broken - violates symmetry
+public final class CaseInsensitiveString {
+    private final String s;
+
+    public CaseInsensitiveString(String s) {
+        if (s == null) {
+            throw new NullPointerException();
+        }
+        this.s = s;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof CaseInsensitiveString) {
+            return s.equalsIgnoreCase(((CaseInsensitiveString)o).s)
+        }
+
+        // One-way interoperability
+        if (o instanceof String) {
+            return s.equalsIgnoreCase((String)o);
+        }
+
+        ...// Remainder ommited
+    }
+}
+
+```
+
+在这个类中，equals 方法的意图非常好，它企图与普通的字符串（String）对象进行互操作。假设我们有一个不区分大小写的字符串和一个普通的字符串：
+
+```java
+
+CaseInsensitiveString cis = new CaseInsensitiveString("TommyYang");
+String s = "tommyyang";
+
+```
+
+如我们所想，cis.equals(s) 返回 true。问题在于 CaseInsensitiveString 类中的 equals 方法知道普通的字符（String）对象，而 String 类中的 equals 方法却不知道不区分大小写的字符串。因此，s.equals(cis)返回 false，显然这违反了对称性。假设你把不区分大小写的字符串对象放到一个集合中：
+
+```java
+
+List<CaseInsensitiveString> cisList = new ArrayList<>();
+cisList.add(cis);
+
+cisList.contains(s);
+
+```
+
+此时 cisList.contains(s) 会返回什么样的结果？没人知道。在 Sun 的当前实现中，它返回 false，但是这只是这个特定实现得出的结果而已。在其它的实现中，它可能返回 true，或抛出运行时（`Runtime`）异常。**一旦违反了 euqals 约定，当其它对象面对你的对象时，你完成不知道这些对象的行为会怎么样**。
+
+为了解决这个问题，你只需要将其与 String 对象互操作的代码移除就可以了。
+
+```java
+
+@Override
+public boolean equals(Object o) {
+    return (o instanceof CaseInsensitiveString) 
+         && s.equalsIgnoreCase(((CaseInsensitiveString)o).s);
+}
+
+```
+
+**传递性（`transitive`）** --- euqals 约定的第三个要求是，如果一个对象等于第二个对象，第二个对象等于第三个对象，那个第一个对象一定等于第三个对象。同样地，无意识地违反这条规定的情形也不难想象。考虑子类的情形，它将一个新的值组件（`value component`）添加到超类中。换句话说，子类增加的信息会影响到 equals 的比较结果。我们首先以一个简单的不可变的二维整形 Point 类作为开始：
+
+```java
+
+public class Point {
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Point)) {
+            return false;
+        }
+
+        Point p = (Point)o;
+        return p.x == this.x && p.y == this.y;
+    }
+
+    ...// Remainder ommited
+}
+
+```
+
+假设你想要扩展这个类，为一个点添加颜色信息：
+
+```java
+
+public class ColorPoint extends Point {
+    private final Color color;
+
+    public ColorPoint(int x, int y, Color color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    ...// Remainder ommited
+}
+
+```
+
+equals 方法会怎么样呢？如果完全不提供 equals 方法，而是直接从 Point 类继承过来，在 equals 方法做比较的时候颜色信息就会被忽略掉。虽然这么做不会违反 equals 约定，但是很明显这是无法接受的。那么我们应该怎么重写 equals 方法呢？
+
+```java
+
+// Broken - violates symmetry
+@Override
+public boolean equals(Object o) {
+    if (!(o instanceof ColorPoint)) {
+        return false;
+    }
+
+    return super.equals(o) && ((ColorPoint)o).color == this.color;
+}
+
+```
+
+这个方法的问题在于，你在比较普通点和有色点，以及相反的情形时，可能会得到不同的结果。前一种比较忽略了颜色信息，而后一种比较则总是返回 false，因为参数的类型不正确。为了直观地说明问题所在，我们创建一个普通点和一个有色点：
+
+```java
+
+Point p = new Point(1, 2);
+ColorPoint cp = new ColorPoint(1, 2, Color.Red);
+
+```
+
+然而，p.equals(cp) 返回 true， cp.equals(p) 返回 false。你可以做这样的尝试来修正这个问题，让 ColorPoint.equals 在进行“混合比较”的时候忽略颜色信息：
+
+```java
+
+// Broken - violates transitivity
+@Override
+public boolean equals(Object o) {
+    if (!(o instanceof Point)) {
+        return false;
+    }
+
+    // if o is a normal Point, do a color-blind comparison
+    if (!o instanceof ColorPoint) {
+        return o.equals(this);
+    }
+
+    // o is a ColorPoint, do a full comparison
+    return super.equals(o) && ((ColorPoint)o).color == this.color;
+}
+
+```
+
+这种做法确实提供了对称性，却忽略了传递性：
+
+```java
+
+ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
+Point p2 = new Point(1, 2);
+ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
+
+```
+
+此时 p1.equals(p2) 和 p2.equals(p3) 都返回 true，但 p1.equals(p3) 返回 false，很显然违反了传递性。前两者的比较不考虑颜色信息（“色盲”），而第三者的比较则考虑了颜色信息。
+
+那么，怎么解决上述问题呢？事实上，这是面向对象语言中关于等价关系的一个基本问题。我们**无法在扩展可实例化的类的同时，既增加新的值组件，同时又保留 equals 约定**，除非愿意放弃面向对象的抽象带来的优势。
+
+也许你了解到，在 equals 方法中用 getClass 测试代替 instanceof 测试，可以扩展可实例化的类和增加新的值组件，同时保留 equals 约定：
+
+```java
+
+// Broken - violates Liskov substitution principle  
+@Override
+public boolean equals(Object o) {
+    if (o == null || o.getClass() != this.getClass()) {
+        return false;
+    }
+
+    Point p = (Point)o;
+    return p.x == this.x && p.y == this.y;
+}
+
+```
+
+这段程序只有当对象具有相同实现时，才能是对象等同。虽然这样也不算太糟糕，但是结果确实无法接受的。
+
+假设我们编写一个方法，已检测某个整值点是否处在单位圆中。下面是可以采用的一种方法：
+
+```java
+
+// Initialize UnitCircle to contain all Points on the unit circle
+private static final Set<Point> unitCircle;
+static {
+    unitCircle = new HashSet<>();
+    unitCircle.add(new Point(1, 0));
+    unitCircle.add(new Point(0, 1));
+    unitCircle.add(new Point(-1, 0));
+    unitCircle.add(new Point(0, -1));
+}
+
+public static boolean onUnitCircle(Point p) {
+    return unitCircle.contains(p);
+}
+
+```
+
+虽然这种这可能不是实现这种功能的最快方式，不过它的效果很好。但是，假设你通过某种不添加值组件的方式扩展了 Point，例如让它的构造器记录创建了多少个实例：
+
+```java
+
+public class CounterPoint extends Point {
+    private static final AtomicInteger counter = new AtomicInteger();
+
+    public CounterPoint(int x, int y) {
+        super(x, y);
+        counter.incrementAndGet();
+    }
+
+    public int numberCreated() {
+        return counter.get();
+    }
+}
+
+```
+
+**里氏替换原则（`Liskov substitution principle`）**认为，一个类型的任何重要属性也将适用于它的子类型，因此为该类型编写的任何方法，在它的子类型上，也应该运行的很好[Liskov87]。但是假设我们将 CounterPointer 实例传递给了 onUnitCircle 方法。如果 Point 类使用了基于 getClass 的 equals 方法，无论 CounterPoint 实例的 x 和 y 的值是多少，onUnitCircle 方法都会返回 false。这时候基于 instanceof 的 equals 方法就会运行的很好。
+
+虽然没有一种令人满意的方法可以既扩展不可实例化的类，又增加值组件，但是还是有一种不错的权宜之计（workaround）。根据第 16 条的建议：复合优先于继承。我们不再让 ColorPoint 继承 Point，而是在 ColorPoint 中加入一个私有的 Point 域，以及一个共有的视图（view）方法（见第 5 条），此方法返回一个与该有色点处在相同位置的普通 Point 对象：
+
+```java
+
+// Add a value component without violating the equals contract
+public class ColorPoint {
+    private final Point point;
+    private final Color color;
+
+    public ColorPoint(int x, int y, Color color) {
+        if (color == null) {
+            throw new NullPointerException();
+        }
+
+        this.point = new Point(x, y);
+        this.color = color;
+    }
+
+    // return the point-view of this color point.
+    public Point asPoint() {
+        return this.point;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof ColorPoint)){
+            return false;
+        }
+
+        ColorPoint cp = (ColorPoint)o;
+
+        return cp.point.equals(this.point) && cp.color.equals(this.color);
+    }
+
+}
+
+```
+
+需要我们记住的是：**复合优先于继承**。
