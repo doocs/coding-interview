@@ -901,3 +901,41 @@ public boolean equals(Object o) {
 - 如果两个对象根据 equals(Object) 方法比较是不相等的，那么调用两个对象中任意一个对象的 hashCode 方法，则不一定要产生不同的整数结果。但是作为程序员应该知道，给不相等的对象产生截然不同的整数结果，有可能提高散列表（hashTable）的性能。
 
 **因没有覆盖 hashCode 而违反的关键约定是第二条：相等的对象必须具有相等的散列码（hash code）**。根据类的 equals 方法，两个截然不同的实例在逻辑上是有可能相等的，但是，根据 Object 类的 hashCode 方法，它们仅仅是两个没有共同之处的对象。因此，对象的 hashCode 方法返回两个看起来是随机的整数，而不是根据第二个约定所要求的那样，返回两个相等的整数。
+
+上 demo，看下面的 PhoneNumber 类，它的 equals 方法是根据第 8 条中给出的“诀窍”构造出来的：
+
+```java
+
+public final class PhoneNumber {
+    private final short areaCode;
+    private final short prefix;
+    private final short lineNumber;
+
+    public PhoneNumber(short areaCode, short prefix, short lineNumber) {
+        this.areaCode = areaCode;
+        this.prefix = prefix;
+        this.lineNumber = lineNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+
+        if (! (o instanceof PhoneNumber)) {
+            return false;
+        }
+
+        PhoneNumber pn = (PhoneNumber)o;
+
+        return pn.areaCode = this.areaCode && pn.prefix = this.prefix
+                    && pn.lineNumber = this.lineNumber;
+    }
+
+    // Broken -- no hashCode method
+
+    ... // Remainder omitted
+}
+
+```
