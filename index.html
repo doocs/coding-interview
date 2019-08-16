@@ -22,7 +22,7 @@
       loadNavbar: true,
       mergeNavbar: true,
       search: [
-        '/',            // => /README.md
+        '/',
         '/docs/coding-interview',
         '/docs/the-beauty-of-programming'
       ],
@@ -31,7 +31,7 @@
           var footer = [
             '<hr/>',
             '<footer>',
-            '<span>Copyright © 2018-2019 <a href="https://github.com/yanglbme" target="_blank">yanglbme</a>. All rights reserved.</span>',
+            '<span>Copyright © 2018-2019 <a href="https://github.com/doocs" target="_blank">Doocs</a>. All rights reserved.</span>',
             '</footer>'
           ].join('')
 
@@ -41,13 +41,8 @@
         }
       ]
     }
-
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('sw.js')
-    }
     
   </script>
-  <!-- <script src="//unpkg.com/docsify"></script> -->
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
