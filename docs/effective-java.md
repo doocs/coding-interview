@@ -1,4 +1,5 @@
 # 《Effective Java》
+[电子书下载](https://github.com/joyang1/JavaInterview/tree/master/books)
 
 ## 第二章 创建和销毁对象
 
@@ -1052,3 +1053,57 @@ public int hashCode() {
 
 Java 平台类库中的许多类，比如 String、 Integer 和 Date，都可以把它们的 hashCode 方法返回的确切值规定为该实例值的一个函数。一般来说，这并不是一个好主意，因为这样做严格地限制了在将来的版本中改进散列函数的能力。如果没有规定散列函数的细节，那么当你
 发现了它的内部缺陷时，就可以在后面的发行版本中修正它，确信没有任何客户端依赖于散列函数返回的确切值。
+
+### 第 10 条：始终覆盖 toString
+虽然 java.lang.Object 提供了 toString 方法的一个实现，但它返回的字符串通常并不是类的用户所期望看到的。它包含类的名称，以及一个 “@” 符号，接着是散列码的无符号十六进制表示法，例如 “PhoneNumber@193b2d”。toString 的通用约定指出，被返回的字符串应该是一个“简洁的，但信息丰富，并易于阅读的表达形式”[JavaSE 6]。尽管有人认为“PhoneNumber@193b2d”，但是与“（021）589-5588”比起来，它还算不上是信息丰富的。toString 的约定进一步指出，“建议所有的子类都覆盖这个方法”。这是一个非常好的建议，真的！因为这样我们可以按照自己想要的形式去打印一个对象，比如 `System.out.println(phoneNumber)`，默认就会打印出 phoneNumber.toString()。这也就是建议所有子类都重写 toString 的原因。
+
+虽然遵守 toString 的约定并不像遵守 equals 和 hashCode（见[第 8 条](第 8 条：覆盖 equals 时请遵守通用约定) 和 [第 9 条](第 9 条：覆盖 equals 总要覆盖 hashCode)）的约定那么重要，但是，提供好的 toString 可以使类用起来更加的舒适。当对象被传递给println、printf、字符串连接操作符（+）以及 assert 或者被调试器打印出来时，toString 方法会被自动调用。
+
+如果为 PhoneNumber 提供了好的 toString 方法，那么，要产生有用的诊断信息会非常简单：
+
+```java
+
+System.out.println("failed to connect: " + phoneNumber)
+
+```
+
+不管是否覆盖了 toString 方法，程序员都将以这种方式来产生诊断信息，但是，如果没有覆盖 toString 方法，产生的消息将难以理解。提供好的 toString 方法，不仅有益于这个类的实例，同样也有益于那些包含这些实例引用的引用的对象，特别是集合对象。打印 Map 时，有下面两条信息：“Tommy = (021）589-5588” 和 “Tommy = PhoneNumber@193b2d”，你更愿意看哪一个？
+
+在实际应用中，toString 方法应该返回对象中包含的所有值得关注的信息，譬如上面的电话号码的例子一样。如果对象太大，或者对象包含的状态信息难以用字符串来表达，这样做就有点不切实际。
+
+在实现 toString 的时候，必须要做出一个重要的决定：是否在文档中指定返回值的格式。对于值类（value class），比如电话号码类、矩阵类，也建议这么做。指定格式的好处是，它可以被用做一种标准的、明确的、适合人阅读的对象表示法。这种表示法可以用于输入和输出，以及用在永久适合人类阅读的数据对象中，例如 XML 文档。如果你指定了格式，那么你最好提供一个相匹配的静态工厂或者构造器，以便于程序员可以很容易地在对象和它的字符串表示法之间来回转换。JDK 类库中的许多值类都采用了这种做法，包括 BigInteger、 BigDecimal 和绝大多数的基本类型包装类（boxed primitive class）。
+
+指定 toString 返回值的格式也有不足之处：如果这个类已经被广泛使用，一旦指定格式，就必须始终如一地坚持这种格式。程序员将会编写出相应的代码来解析这种字符串表示法、产生字符串表示法，以及把字符串表示法嵌入到持久的数据中。如果将来的发行版本中改变了这种表示法，就破坏他们的代码和数据，他们当然会抱怨。如果不指定格式，就可以保留灵活性，便于在将来的发行版本中增加信息，或者改进格式。
+
+**无论你是否决定指定格式，都应该在文档中明确地表明你的意图**。如下,[第 9 条](第 9 条：覆盖 equals 总要覆盖 hashCode)中 PhoneNumber 的 toString 方法：
+
+```java
+
+/**
+ * return (XXX)-YYY-ZZZZ，where XXX is the area code, YYY is the prefix,
+ * and ZZZZ is the line number.
+ */
+@Override
+public String toString() {
+    return String.format("(%03d)-%03d-%04d", this.areaCode, this.prefix, this.lineNumber);
+}
+
+```
+
+如果你决定不指定格式，那么在文档注释部分也应该有如下所示的指示信息：
+
+```java
+
+/**
+ * return a brief description of this potion.
+ */
+@Override
+public String toString() {
+    ...
+}
+
+```
+
+对于那些依赖于格式的细节进行编程或者产生永久数据的程序员，在读到这段注释之后，一旦格式被改变，则只能自己承担后果。
+
+无论是否指定格式，**都为 toString 返回值中包含的所有信息，提供一种编程式的访问途径**。
