@@ -7,6 +7,7 @@
   <meta name="description" content="coding-interview">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify-dark-mode@0.6.1/dist/style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=5.1.4">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=5.1.4">
 </head>
@@ -15,7 +16,7 @@
   <script>
     window.$docsify = {
       name: 'coding-interview',
-      repo: 'doocs/coding-interview',
+      // repo: 'doocs/coding-interview',
       maxLevel: 3,
       auto2top: true,
       coverpage: true,
@@ -26,12 +27,17 @@
         '/docs/coding-interview',
         '/docs/the-beauty-of-programming'
       ],
+      darkMode: {
+        light: {
+          toggleBtnBg: '#42b983'
+        }
+      },
       plugins: [
         function (hook) {
           var footer = [
             '<hr/>',
             '<footer>',
-            '<span>Copyright © 2018-2019 <a href="https://github.com/doocs" target="_blank">Doocs</a>. All rights reserved.</span>',
+            '<span>Copyright © 2018-2020 <a href="https://github.com/doocs" target="_blank">Doocs</a>. All rights reserved.',
             '</footer>'
           ].join('')
 
@@ -53,5 +59,6 @@
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <script src="//unpkg.com/docsify-dark-mode@0.6.1/dist/index.js"></script>
 </body>
 </html>
