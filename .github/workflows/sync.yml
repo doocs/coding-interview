@@ -2,7 +2,7 @@ name: Sync
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -18,9 +18,10 @@ jobs:
           source-repo: "git@github.com:doocs/coding-interview.git"
           destination-repo: "git@gitee.com:Doocs/coding-interview.git"
 
-    - name: Rebuild Gitee Pages
-      uses: mizuka-wu/gitee-pages-action@v1.0.0
+    - name: Build Gitee Pages
+      uses: yanglbme/gitee-pages-action@master
       with:
-          repository: doocs/coding-interview
-          cookie: ${{ secrets.GITEE_COOKIE }}
-          branch: master
+          gitee-username: yanglbme
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: doocs/coding-interview
+          branch: main

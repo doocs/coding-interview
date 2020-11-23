@@ -1,6 +1,6 @@
 # 互联网公司 IT 技术面试题集
 
-[![license](https://badgen.net/github/license/doocs/leetcode?color=green)](https://github.com/doocs/coding-interview/blob/master/LICENSE)
+[![license](https://badgen.net/github/license/doocs/leetcode?color=green)](https://github.com/doocs/coding-interview/blob/main/LICENSE)
 [![stars](https://badgen.net/github/stars/doocs/coding-interview)](https://github.com/doocs/coding-interview/stargazers)
 [![issues](https://badgen.net/github/open-issues/doocs/coding-interview)](https://github.com/doocs/coding-interview/issues)
 [![forks](https://img.shields.io/github/forks/doocs/coding-interview.svg)](https://github.com/doocs/coding-interview/network/members)
