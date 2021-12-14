@@ -1,7 +1,5 @@
 # 《Effective Java》
 
-[电子书下载](https://github.com/joyang1/JavaInterview/tree/master/books)
-
 ## 第二章 创建和销毁对象
 
 ### 第 1 条：考虑用静态工厂方法代替构造器
