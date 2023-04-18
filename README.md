@@ -16,9 +16,9 @@
 
 这本书选取的[题目](/docs/coding-interview.md)都是被各大公司面试官反复采用的编程题，极具实战意义。当然，如果一开始觉得这些题目比较难，也是很正常的，因为大公司的面试本身就不简单。我们逐步掌握书中总结的解题方法之后，再去面试大公司，将会轻松很多。
 
-推荐三个在线刷《剑指 Offer》的平台，个人比较倾向于 [LeetCode 中国](https://leetcode-cn.com/problemset/lcof/) 。
+推荐三个在线刷《剑指 Offer》的平台，个人比较倾向于 [LeetCode 中国](https://leetcode.cn/problemset/lcof/) 。
 
-- [LeetCode 中国](https://leetcode-cn.com/problemset/lcof/)：近期上线，支持多种编程语言，墙裂推荐。
+- [LeetCode 中国](https://leetcode.cn/problemset/lcof/)：近期上线，支持多种编程语言，墙裂推荐。
 - [AcWing](https://www.acwing.com/problem/)：支持 Java11。团队成员来自北大清华，剑指 Offer 第二版题目都有。
 - [NowCoder](https://www.nowcoder.com/ta/coding-interviews)：这个应该大多数人都知道，但是没有剑指 Offer 第二版新增的题目。
 

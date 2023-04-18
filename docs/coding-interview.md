@@ -629,7 +629,7 @@ class MyQueue {
 
 ## 9.2 用两个队列实现栈
 
-来源：[LeetCode](https://leetcode-cn.com/problems/implement-stack-using-queues/)
+来源：[LeetCode](https://leetcode.cn/problems/implement-stack-using-queues/)
 
 ### 题目描述
 
