@@ -68,21 +68,15 @@ Doocs 技术社区，致力于打造一个内容完整、持续成长的互联�
 
 ## 公众号
 
-[Doocs](https://github.com/doocs) 技术社区旗下唯一公众号「**Doocs 开源社区**」​，欢迎扫码关注，**专注分享技术领域相关知识及行业最新资讯**。当然，也可以加我个人微信（备注：GitHub），拉你进技术交流群。
+[Doocs](https://github.com/doocs) 技术社区旗下唯一公众号「**Doocs**」​，欢迎扫码关注，**专注分享技术领域相关知识及行业最新资讯**。当然，也可以加我个人微信（备注：GitHub），拉你进技术交流群。
 
 <table>
   <tr>
-    <td align="center" style="width: 200px;">
-      <a href="https://github.com/doocs">
-        <img src="./images/qrcode-for-doocs.jpg" style="width: 400px;"><br>
-        <sub>公众平台</sub>
-      </a><br>
+    <td align="center" style="width: 260px;">
+      <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-doocs.png" style="width: 400px;"><br>
     </td>
-    <td align="center" style="width: 200px;">
-      <a href="https://github.com/yanglbme">
-        <img src="./images/qrcode-for-yanglbme.jpg" style="width: 400px;"><br>
-        <sub>个人微信</sub>
-      </a><br>
+    <td align="center" style="width: 260px;">
+      <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" style="width: 400px;"><br>
     </td>
   </tr>
 </table>
