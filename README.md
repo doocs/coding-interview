@@ -12,7 +12,7 @@
 
 ## 站点
 
-https://doocs.github.io/coding-interview
+https://interview.doocs.org
 
 ## 书籍笔记
 
