@@ -23,7 +23,6 @@
 hs_err_pid*
 
 node_modules
-*.json
 
 
 docs/.vitepress/dist
