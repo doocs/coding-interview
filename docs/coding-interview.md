@@ -1557,7 +1557,7 @@ class Solution {
 
 #### 解法二
 
-![odd-even](/images/odd-even.png)
+![odd-even](./images/odd-even.png)
 
 递归求解，每次 exponent 缩小一半，时间复杂度为 `O(log N)`。
 
@@ -3165,18 +3165,18 @@ public class Solution {
 
 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的 `head`。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
 
-![random-list](/images/random-list.png)
+![random-list](./images/random-list.png)
 
 ### 解法
 
 - 第一步，在每个节点的后面插入复制的节点；
-  ![random-list-step1.png](/images/random-list-step1.png)
+  ![random-list-step1.png](./images/random-list-step1.png)
 
 - 第二步，对复制节点的 random 链接进行赋值；
-  ![random-list-step2.png](/images/random-list-step2.png)
+  ![random-list-step2.png](./images/random-list-step2.png)
 
 - 第三步，分离两个链表。
-  ![random-list-step3.png](/images/random-list-step3.png)
+  ![random-list-step3.png](./images/random-list-step3.png)
 
 ```java
 /*

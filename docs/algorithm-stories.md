@@ -16,7 +16,7 @@
 
 有一天，岛上突然来了一位游客，她完全处于状况外。于是，她对和尚们说：“你们当中至少有一位的眼睛是红色的”。
 
-![island-eye-color](/images/island-eye-color.jpg)
+![island-eye-color](./images/island-eye-color.jpg)
 
 这名无心的游客当天就离开了小岛，而和尚们却因第一次听到有关眼睛颜色的话题而惴惴不安。当晚，小岛上开始出现了可怕的事情......
 
@@ -159,7 +159,7 @@ boolean isLeapYear(int year) {
 
 答案本身非常简单，不过能够真正求解的人却寥寥无几。想问题的时候，请不要考虑房间或水的温度，以及化学反应等“不讲理”的方法。另外，不允许喝杯子里的水。
 
-![water-cup](/images/water-cup.jpg)
+![water-cup](./images/water-cup.jpg)
 
 即使读完题没能马上想起答案，但看到插图后能够立刻明白，也可以说很有编程的感觉。将杯子倾斜，使水面刚好到达杯口时，查看杯底的水就能得出答案了。
 

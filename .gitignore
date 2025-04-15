@@ -24,3 +24,7 @@ hs_err_pid*
 
 node_modules
 *.json
+
+
+docs/.vitepress/dist
+docs/.vitepress/cache
