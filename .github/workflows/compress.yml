@@ -16,7 +16,7 @@ jobs:
     if: github.repository == 'doocs/coding-interview'
     steps:
       - name: Checkout Branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Compress Images
         id: calibre
