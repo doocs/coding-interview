@@ -1,10 +1,10 @@
 {
   "packageManager": "pnpm@11.9.0",
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "vitepress": "^2.0.0-alpha.17",
-    "vue": "^3.5.32",
-    "vue-tsc": "^3.0.8"
+    "typescript": "^7.0.2",
+    "vitepress": "^2.0.0-alpha.18",
+    "vue": "^3.5.39",
+    "vue-tsc": "^3.3.7"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
