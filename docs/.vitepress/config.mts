@@ -65,5 +65,10 @@ export default defineConfig({
   cleanUrls: true,
   sitemap: {
     hostname: 'https://interview.doocs.org'
-  }
+  },
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1000,
+    },
+  },
 })
