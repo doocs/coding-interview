@@ -2,11 +2,13 @@ packages:
   - '.'
 
 overrides:
-  esbuild: '>=0.28.1'
-  vite: '7.3.6'
+  esbuild: 0.28.2
+  nanoid: 3.3.18
+  postcss: 8.5.26
+  vite: 8.2.2
 
 allowBuilds:
   esbuild: true
 
 minimumReleaseAgeExclude:
-  - vite@7.3.6
+  - vite@8.2.2
